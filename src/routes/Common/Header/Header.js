@@ -1,6 +1,8 @@
 import React from 'react';
 import { logo } from '../../../index';
 import './Header.css';
+import { faCoffee, faSignOut } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Header = () => {
     return (
@@ -36,9 +38,7 @@ const Header = () => {
                         <p className='mx-7 px-2 bar'>Purchase</p>
                         <span className="border-r-2"></span>
                     </div>
-
-
-                    <p className='px-9'>O-</p>
+                    <p className='px-9 hover:text-red-500 transition duration-150 ease-in-out' data-bs-toggle="tooltip" title="LogOut"><FontAwesomeIcon icon={faSignOut}></FontAwesomeIcon></p>
                 </div>
             </div>
 
