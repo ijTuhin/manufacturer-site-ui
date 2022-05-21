@@ -3,6 +3,7 @@ import { logo } from '../../../index';
 import './Header.css';
 import { faBars, faMessage, faSignOut, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -15,31 +16,31 @@ const Header = () => {
                         <p className='px-3 font-mono'>user@somemail.some</p>
                     </div>
                     <div className='flex'>
-                        <p className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Home</p>
-                        <p className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Blog</p>
-                        <p className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Portfolio</p>
-                        <p className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>About us</p>
+                        <Link to="/#" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Home</Link>
+                        <Link to="/#" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Blog</Link>
+                        <Link to="/#" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Portfolio</Link>
+                        <Link to="/#" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>About us</Link>
                     </div>
                 </div>
                 <div className='mx-24 py-5'>
                     <div className='flex items-center justify-center pr-8'>
                         <div className='flex'>
-                            <p className='mx-7 px-2 bar'>My Orders</p>
+                            <Link to="/#" className='mx-7 px-2 bar'>My Orders</Link>
                             <span className='border-r-2'></span>
                         </div>
                         <div className="flex">
-                            <p className='mx-7 px-2 bar'>Add a Review</p>
+                            <Link to="/#" className='mx-7 px-2 bar'>Add a Review</Link>
                             <span className="border-r-2"></span>
                         </div>
                         <div className="flex">
-                            <p className='mx-7 px-2 bar'>My Profile</p>
+                            <Link to="/#" className='mx-7 px-2 bar'>My Profile</Link>
                             <span className="border-r-2"></span>
                         </div>
                         <div className="flex">
-                            <p className='mx-7 px-2 bar'>Purchase</p>
+                            <Link to="/#" className='mx-7 px-2 bar'>Purchase</Link>
                             <span className="border-r-2"></span>
                         </div>
-                        <p className='px-9 hover:text-red-500 transition duration-150 ease-in-out' data-bs-toggle="tooltip" title="LogOut"><FontAwesomeIcon icon={faSignOut}></FontAwesomeIcon></p>
+                        <Link to="/#" className='px-9 hover:text-red-500 transition duration-150 ease-in-out' data-bs-toggle="tooltip" title="LogOut"><FontAwesomeIcon icon={faSignOut}></FontAwesomeIcon></Link>
                     </div>
                 </div>
             </div>
@@ -47,11 +48,12 @@ const Header = () => {
                 <div class="flex justify-center">
                     <div>
                         <div class="dropdown relative">
-                            <button className='hover:text-red-500 transition duration-150 ease-in-out text-lg' data-bs-toggle="tooltip" title="LogOut" type="button"
-                                id="dropdownMenuButton2df"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false" ><FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
-                            </button>
+                            <Link to="/#" className='hover:text-red-500 transition duration-150 ease-in-out text-lg' 
+                            type="button"
+                            id="dropdownMenuButton2"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"><FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
+                            </Link>
                             <ul
                                 class="
           dropdown-menu
@@ -80,44 +82,44 @@ const Header = () => {
                                     <span><FontAwesomeIcon className='text-slate-500' icon={faMessage}></FontAwesomeIcon> user@somemail.some</span>
                                 </p>
                                 <li className='border-t-2 border-gray-100'>
-                                    <p
+                                    <Link to="/#"
                                         class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                                    >Home</p>
+                                    >Home</Link>
                                 </li>
                                 <li>
-                                    <p
+                                    <Link to="/#"
                                         class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                                    >Blog</p>
+                                    >Blog</Link>
                                 </li>
                                 <li>
-                                    <p
+                                    <Link to="/#"
                                         class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                                    >Portfolio</p>
+                                    >Portfolio</Link>
                                 </li>
                                 <li className='border-b-2 border-gray-100'>
-                                    <p
+                                    <Link to="/#"
                                         class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                                    >About us</p>
+                                    >About us</Link>
                                 </li>
                                 <li>
-                                    <p
+                                    <Link to="/#"
                                         class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                                    >My Orders</p>
+                                    >My Orders</Link>
                                 </li>
                                 <li>
-                                    <p
+                                    <Link to="/#"
                                         class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                                    >Purchase</p>
+                                    >Purchase</Link>
                                 </li>
                                 <li>
-                                    <p
+                                    <Link to="/#"
                                         class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                                    >Add a Review</p>
+                                    >Add a Review</Link>
                                 </li>
                                 <li>
-                                    <p
+                                    <Link to="/#"
                                         class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                                    >My Profile</p>
+                                    >My Profile</Link>
                                 </li>
                             </ul>
                         </div>
@@ -128,7 +130,7 @@ const Header = () => {
 
 
                 <img src={logo} className="w-40" alt="" />
-                <p className='hover:text-red-500 transition duration-150 ease-in-out text-lg' data-bs-toggle="tooltip" title="LogOut"><FontAwesomeIcon icon={faSignOut}></FontAwesomeIcon></p>
+                <Link to="/#" className='hover:text-red-500 transition duration-150 ease-in-out text-lg' data-bs-toggle="tooltip" title="LogOut"><FontAwesomeIcon icon={faSignOut}></FontAwesomeIcon></Link>
             </div>
 
         </div>
