@@ -21,3 +21,4 @@ root.render(
 reportWebVitals();
 
 export const logo = require('./images/logo.png');
+export const banner1 = require('./images/banner1.jpg');
