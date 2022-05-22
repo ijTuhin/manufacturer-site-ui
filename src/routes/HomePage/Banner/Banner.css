@@ -1,7 +1,8 @@
-body{
+body {
     margin: 0;
     overflow-x: hidden;
 }
+
 .banner {
     background-image: url('../../../images/banner1.jpg');
     background-repeat: no-repeat;
@@ -9,6 +10,51 @@ body{
     height: 100vmin;
     background-size: 100% 100vh;
 }
+
+
+.banner-heading {
+    padding-left: 7em;
+    font-family: "Prata", serif;
+}
+
+@keyframes outer-left {
+    from {
+        transform: translateX(95%);
+    }
+
+    to {
+        transform: none;
+    }
+}
+
+@keyframes inner-left {
+    from {
+        transform: translateX(-30%);
+    }
+
+    to {
+        transform: none;
+    }
+}
+
+.first-txt,
+.second-txt {
+    animation: outer-left 3s both;
+}
+
+.banner-heading-inner {
+    display: inline-block;
+}
+
+.first-txt-inner {
+    display: inline-block;
+    animation: inner-left 1.5s 1s ease both;
+}
+
+.banner-heading {
+    animation: outer-left 1.5s 1s ease both;
+}
+
 
 @media only screen and (max-width: 600px) {
     .banner {
