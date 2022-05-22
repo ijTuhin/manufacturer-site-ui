@@ -2,7 +2,7 @@ import React from 'react';
 import {retails, workers, units, factory} from '../../../index';
 const BusinessSummary = () => {
     return (
-        <div className='my-10 py-10 bg-sky-100'>
+        <div className='py-10 bg-sky-100'>
             <h2 className='text-3xl text-center md:block hidden'>Our Business Summary in Numbers</h2>
             <h2 className='text-3xl text-center md:hidden block'>Our Business <br />Summary in Numbers</h2>
             <div className='md:flex md:justify-center md:items-center md:mx-56 grid grid-cols-2 gap-y-5 gap-x-3 mx-6 my-12'>

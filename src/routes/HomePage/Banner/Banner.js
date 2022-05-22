@@ -3,7 +3,7 @@ import { banner1 } from '../../../index';
 import './Banner.css';
 const Banner = () => {
     return (
-        <div className='banner'>
+        <div className='banner bg-gray-200/95'>
             <div class="banner-heading">
                 <div class="banner-heading-inner w-full p-3 bg-slate-300/60 md:mt-40 mt-12 border-l-4 border-blue-800">
                     <div class="first-txt">
