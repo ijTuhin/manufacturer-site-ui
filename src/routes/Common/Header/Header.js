@@ -8,8 +8,8 @@ import { Link } from 'react-router-dom';
 const Header = () => {
     return (
         <div>
-            <div className=' shadow-lg navbar navbar-expand-lg navbar-light md:block hidden'>
-                <div className='flex items-center justify-between mx-8 py-4'>
+            <div className='shadow-lg navbar navbar-expand-lg navbar-light md:block hidden'>
+                <div className='bg-white flex items-center justify-between px-8 py-4'>
                     <div className='flex items-center justify-between'>
                         <img src={logo} className="w-56 pr-8" alt="" />
                         <p className='px-3 font-mono'>Username</p>
@@ -20,27 +20,6 @@ const Header = () => {
                         <Link to="/#" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Blog</Link>
                         <Link to="/#" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Portfolio</Link>
                         <Link to="/#" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>About us</Link>
-                    </div>
-                </div>
-                <div className='mx-24 py-5'>
-                    <div className='flex items-center justify-center pr-8'>
-                        <div className='flex'>
-                            <Link to="/#" className='mx-7 px-2 bar'>My Orders</Link>
-                            <span className='border-r-2'></span>
-                        </div>
-                        <div className="flex">
-                            <Link to="/#" className='mx-7 px-2 bar'>Add a Review</Link>
-                            <span className="border-r-2"></span>
-                        </div>
-                        <div className="flex">
-                            <Link to="/#" className='mx-7 px-2 bar'>My Profile</Link>
-                            <span className="border-r-2"></span>
-                        </div>
-                        <div className="flex">
-                            <Link to="/#" className='mx-7 px-2 bar'>Purchase</Link>
-                            <span className="border-r-2"></span>
-                        </div>
-                        <Link to="/#" className='px-9 hover:text-red-500 transition duration-150 ease-in-out' data-bs-toggle="tooltip" title="LogOut"><FontAwesomeIcon icon={faSignOut}></FontAwesomeIcon></Link>
                     </div>
                 </div>
             </div>
