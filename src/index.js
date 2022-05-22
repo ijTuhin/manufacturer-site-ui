@@ -23,3 +23,7 @@ reportWebVitals();
 export const logo = require('./images/logo.png');
 export const banner1 = require('./images/banner1.jpg');
 export const banner2 = require('./images/banner2.jpg');
+export const retails = require('./images/icons/retail.png');
+export const factory = require('./images/icons/factorySpace.png');
+export const units = require('./images/icons/units.png');
+export const workers = require('./images/icons/workers.png');

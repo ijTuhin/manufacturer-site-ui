@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const UserNav = () => {
     return (
-        <div className='md:block hidden sticky z-50 top-0 bg-sky-400 text-gray-700 py-5'>
+        <div className='md:block hidden sticky z-50 top-0 bg-sky-500 text-gray-700 py-5'>
             <div className='flex items-center justify-center pr-8'>
                 <div className='flex'>
                     <Link to="/#" className='mx-7 px-2 bar'>My Orders</Link>
