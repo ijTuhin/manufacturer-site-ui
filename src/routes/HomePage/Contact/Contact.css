@@ -1,0 +1,42 @@
+.banner-heading {
+    padding-left: 30em;
+    font-family: "Prata", serif;
+}
+
+@keyframes outer-left {
+    from {
+        transform: translateX(90%);
+    }
+
+    to {
+        transform: none;
+    }
+}
+
+@keyframes inner-left {
+    from {
+        transform: translateX(-30%);
+    }
+
+    to {
+        transform: none;
+    }
+}
+
+.contact-txt,
+.contact-box {
+    animation: outer-left 3s both;
+}
+
+.banner-heading-inner {
+    display: inline-block;
+}
+
+.contact-txt-inner {
+    display: inline-block;
+    animation: inner-left 1.5s 1s ease both;
+}
+
+.banner-heading {
+    animation: outer-left 1.5s 1s ease both;
+}
