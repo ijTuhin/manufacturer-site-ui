@@ -16,10 +16,10 @@ const Header = () => {
                         <p className='px-3 font-mono'>user@somemail.some</p>
                     </div>
                     <div className='flex'>
-                        <Link to="/#" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Home</Link>
-                        <Link to="/#" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Blog</Link>
-                        <Link to="/#" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Portfolio</Link>
-                        <Link to="/#" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>About us</Link>
+                        <Link to="/" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Home</Link>
+                        <Link to="/blogs" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Blog</Link>
+                        <Link to="/portfolio" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Portfolio</Link>
+                        <Link to="/about-us" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>About us</Link>
                     </div>
                 </div>
             </div>
@@ -61,42 +61,42 @@ const Header = () => {
                                     <span><FontAwesomeIcon className='text-slate-500' icon={faMessage}></FontAwesomeIcon> user@somemail.some</span>
                                 </p>
                                 <li className='border-t-2 border-gray-100'>
-                                    <Link to="/#"
+                                    <Link to="/"
                                         class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
                                     >Home</Link>
                                 </li>
                                 <li>
-                                    <Link to="/#"
+                                    <Link to="/blogs"
                                         class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
                                     >Blog</Link>
                                 </li>
                                 <li>
-                                    <Link to="/#"
+                                    <Link to="/portfolio"
                                         class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
                                     >Portfolio</Link>
                                 </li>
                                 <li className='border-b-2 border-gray-100'>
-                                    <Link to="/#"
+                                    <Link to="/about-us"
                                         class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
                                     >About us</Link>
                                 </li>
                                 <li>
-                                    <Link to="/#"
+                                    <Link to="/my-orders"
                                         class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
                                     >My Orders</Link>
                                 </li>
                                 <li>
-                                    <Link to="/#"
+                                    <Link to="/purchase"
                                         class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
                                     >Purchase</Link>
                                 </li>
                                 <li>
-                                    <Link to="/#"
+                                    <Link to="/add-review"
                                         class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
                                     >Add a Review</Link>
                                 </li>
                                 <li>
-                                    <Link to="/#"
+                                    <Link to="/user-profile"
                                         class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
                                     >My Profile</Link>
                                 </li>
