@@ -1,42 +1,34 @@
-.banner-heading {
-    padding-left: 30em;
-    font-family: "Prata", serif;
+.contact-txt {
+    animation: moveToTop 1s ease-in-out;
+    animation-delay: 0ms;
 }
 
-@keyframes outer-left {
-    from {
-        transform: translateX(90%);
+@keyframes moveToTop {
+    0% {
+        transform: translateY(200px);
     }
-
-    to {
-        transform: none;
-    }
-}
-
-@keyframes inner-left {
-    from {
-        transform: translateX(-30%);
-    }
-
-    to {
-        transform: none;
+    100% {
+        transform: translateY(0px);
     }
 }
 
-.contact-txt,
-.contact-box {
-    animation: outer-left 3s both;
+.geeks {
+    width: 400px;
+    height: 2px;
+    background: rgb(225, 196, 123);
+    animation: animate 1s ease-out;
 }
 
-.banner-heading-inner {
-    display: inline-block;
+.geeks::before {
+    content: "";
+    background: none;
 }
 
-.contact-txt-inner {
-    display: inline-block;
-    animation: inner-left 1.5s 1s ease both;
-}
-
-.banner-heading {
-    animation: outer-left 1.5s 1s ease both;
+@keyframes animate {
+    0% {
+        transform: translateX(350px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
 }

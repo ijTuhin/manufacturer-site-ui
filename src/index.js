@@ -27,3 +27,5 @@ export const retails = require('./images/icons/retail.png');
 export const factory = require('./images/icons/factorySpace.png');
 export const units = require('./images/icons/units.png');
 export const workers = require('./images/icons/workers.png');
+export const whatsapp = require('./images/icons/whatsapp.png');
+export const phone = require('./images/icons/phone.jpg');

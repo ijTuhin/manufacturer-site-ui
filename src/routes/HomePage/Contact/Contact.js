@@ -1,12 +1,34 @@
 import React from 'react';
 import './Contact.css';
+import {whatsapp} from '../../../index';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
+
+
 const Contact = () => {
     return (
         <div className='bg-transparent grid grid-cols-6 w-screen'>
-            <div className='py-10 md:mr-28 col-span-3 bg-black/40 banner-heading'>
-                <div className='banner-heading-inner'>
-                    <h2 className='text-4xl font-serif text-white md:relative md:left-20 md:top-10 contact-txt'>Contact us</h2>
-                    <h2 className='text-4xl font-serif text-white md:relative md:left-20 md:top-10 md:border-t-2 contact-box'>Contact us</h2>
+            <div className='py-10 md:mr-28 col-span-3 bg-black/40'>
+                <div>
+                    <div className=''>
+                        <h2 className='text-4xl font-serif text-white md:relative md:left-28 md:top-20 contact-txt'>Contact us</h2>
+                        <div className='geeks mt-4 md:relative md:left-28 md:top-20'></div>
+                        <div className='flex md:relative md:left-72 md:top-20'>
+                            <div className='w-56 h-36 bg-sky-900/90 flex items-center justify-center'>
+                                <img src={whatsapp} className="w-8 mx-3" alt="" />
+                                <div>
+                                    <h2 className='text-2xl font-medium text-white mb-1'>Whatsapp</h2>
+                                    <p className=' text-gray-100'>+880-1212288909</p>
+                                </div>
+                            </div>
+                            <div className='w-56 h-36 bg-slate-900/90 flex items-center justify-center'>
+                                <div>
+                                    <h2 className='text-2xl font-medium text-white mb-1'><span className="w-8 text-xl font-medium text-white"><FontAwesomeIcon icon={faPhone}></FontAwesomeIcon></span> Phone</h2>
+                                    <p className=' text-gray-100'>+880-1212288909</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
