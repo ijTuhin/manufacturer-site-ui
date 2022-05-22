@@ -5,6 +5,7 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
+            <h1 className='h-96'>sdae</h1>
         </div>
     );
 };

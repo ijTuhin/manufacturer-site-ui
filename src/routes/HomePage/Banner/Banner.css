@@ -1,0 +1,20 @@
+body{
+    margin: 0;
+    overflow-x: hidden;
+}
+.banner {
+    background-image: url('../../../images/banner1.jpg');
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vmin;
+    background-size: 100% 100vh;
+}
+
+@media only screen and (max-width: 600px) {
+    .banner {
+        background-size: contain;
+    }
+}
+
+/* to make bg img fixed while scrolling
+background-attachment: fixed; */

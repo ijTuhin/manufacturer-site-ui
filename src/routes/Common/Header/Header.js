@@ -23,7 +23,7 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-            <div className='md:hidden flex items-center justify-between mx-6 py-6'>
+            <div className='bg-sky-200 md:hidden flex items-center justify-between p-6'>
                 <div class="flex justify-center">
                     <div>
                         <div class="dropdown relative">
