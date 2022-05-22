@@ -4,7 +4,7 @@ body {
 }
 
 .banner {
-    background-image: url('../../../images/banner1.jpg');
+    background-image: url('https://img.freepik.com/free-photo/business-finance-employment-female-successful-entrepreneurs-concept-enthusiastic-office-manager-showing-her-presentation-laptop-pointing-screen-smiling-amused_1258-94479.jpg?t=st=1653218353~exp=1653218953~hmac=8ea85ca38a867764f56639338e770656be1e5bdbdcd970ddbcf6f5f81bf966a0&w=1380');
     background-repeat: no-repeat;
     width: 100vw;
     height: 100vmin;
@@ -13,13 +13,13 @@ body {
 
 
 .banner-heading {
-    padding-left: 7em;
+    padding-left: 30em;
     font-family: "Prata", serif;
 }
 
 @keyframes outer-left {
     from {
-        transform: translateX(95%);
+        transform: translateX(90%);
     }
 
     to {
@@ -56,9 +56,42 @@ body {
 }
 
 
+.image {
+    grid-row: 1;
+    grid-column: 2;
+    margin-left: 60%;
+    margin-top: -10%;
+    animation: image-in 1s cubic-bezier(0.5, 0, 0.1, 1) 2s backwards;
+}
+
+@keyframes image-in {
+    from {
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+img {
+    display: block;
+}
+
 @media only screen and (max-width: 600px) {
     .banner {
         background-size: contain;
+    }
+
+    .banner-heading {
+        padding-left: 12.5em;
+        font-family: "Prata", serif;
+    }
+
+    .image {
+
+        margin-left: 60%;
+        margin-top: -10%;
     }
 }
 
