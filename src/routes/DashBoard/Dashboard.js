@@ -13,8 +13,7 @@ const Dashboard = () => {
         <div>
             <SideNav></SideNav>
             <div className='md:flex hidden'>
-                <div className='ml-60 w-full h-[500px] bg-slate-300'>
-                    <h2>Something something</h2>
+                <div className='ml-60 px-20 w-full h-[500px] bg-slate-300'>
                     <Outlet />
                 </div>
                 <div className="flex flex-col justify-between w-60 bg-white h-[500px] absolute" id="sidenavSecExample">

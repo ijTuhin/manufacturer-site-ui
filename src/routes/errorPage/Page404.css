@@ -1,15 +1,45 @@
-.arrow{
-    animation: bounce 1s infinite;
+.arrow {
+  -webkit-animation: bounceRight 2s infinite;
+  animation: bounceRight 2s infinite;
+  float: right;
 }
 
+@-webkit-keyframes bounceRight {
 
-@keyframes bounce {
-  0%, 100% {
-    transform: translateX(-25%);
-    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-  }
-  50% {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
     transform: translateX(0);
-    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  50% {
+    -webkit-transform: translateX(-8px);
+    transform: translateX(-8px);
+  }
+}
+
+@-moz-keyframes bounceRight {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(-8px);
+  }
+}
+
+@keyframes bounceRight {
+
+  0%,
+  100% {
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  50% {
+    -ms-transform: translateX(-8px);
+    transform: translateX(-8px);
   }
 }
