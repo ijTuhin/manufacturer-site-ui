@@ -11,12 +11,10 @@ import 'animate.css';
 import ScrollAnimation from 'react-animate-on-scroll';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
-import { useNavigate } from 'react-router-dom';
 
 
 const Home = () => {
     const [user] = useAuthState(auth);
-    const navigate = useNavigate();
     return (
         <div>
             {

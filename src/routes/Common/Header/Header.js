@@ -3,11 +3,18 @@ import { logo } from '../../../index';
 import './Header.css';
 import { faBars, faMessage, faSignOut, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
+import { signOut } from 'firebase/auth';
 
 const Header = () => {
+    const [user] = useAuthState(auth);
+    const navigate = useNavigate();
+
     return (
         <div className='sticky z-50 top-0'>
+
             <div className='shadow-lg navbar navbar-expand-lg navbar-light md:block hidden'>
                 <div className='bg-white flex items-center justify-between px-8 py-4'>
                     <div className='flex items-center justify-between'>
@@ -20,15 +27,24 @@ const Header = () => {
                         <Link to="/blogs" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Blog</Link>
                         <Link to="/portfolio" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Portfolio</Link>
                         <Link to="/about-us" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>About us</Link>
-                        <Link to="/login" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Login</Link>
+                        {
+                            !user ?
+                                <Link to="/login" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Login</Link>
+                                :
+                                <><button className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded' onClick={() => {
+                                    signOut(auth);
+                                    navigate('/');
+                                }}>LogOut</button></>
+                        }
+
                     </div>
                 </div>
             </div>
-            <div className='bg-sky-200 md:hidden flex items-center justify-between p-6'>
+            <div className='shadow-lg navbar navbar-expand-lg navbar-light bg-white md:hidden flex items-center justify-between p-6'>
                 <div class="flex justify-center">
                     <div>
                         <div class="dropdown relative">
-                            <Link to="/#" className='hover:text-red-500 transition duration-150 ease-in-out text-lg'
+                            <Link to="/#" className='hover:text-sky-700 transition duration-150 ease-in-out text-lg'
                                 type="button"
                                 id="dropdownMenuButton2"
                                 data-bs-toggle="dropdown"
@@ -81,33 +97,48 @@ const Header = () => {
                                         class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
                                     >About us</Link>
                                 </li>
-                                <li className='border-b-2 border-gray-100'>
-                                    <Link to="/about-us"
-                                        class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                                    >Login</Link>
-                                </li>
-                                <div>
-                                    <li>
-                                        <Link to="/user-orders"
-                                            class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                                        >My Orders</Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/purchase"
-                                            class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                                        >Purchase</Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/add-review"
-                                            class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                                        >Add a Review</Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/user-profile"
-                                            class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                                        >My Profile</Link>
-                                    </li>
-                                </div>
+
+                                {
+                                    !user ?
+                                        <>
+                                            <li>
+                                                <Link to="/login"
+                                                    class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                                                >Login</Link>
+                                            </li>
+                                        </>
+                                        :
+                                        <>
+                                            <div>
+                                                <li>
+                                                    <Link to="/user-orders"
+                                                        class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                                                    >My Orders</Link>
+                                                </li>
+                                                <li>
+                                                    <Link to="/purchase"
+                                                        class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                                                    >Purchase</Link>
+                                                </li>
+                                                <li>
+                                                    <Link to="/add-review"
+                                                        class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                                                    >Add a Review</Link>
+                                                </li>
+                                                <li>
+                                                    <Link to="/user-profile"
+                                                        class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                                                    >My Profile</Link>
+                                                </li>
+                                            </div>
+                                            <li className='border-b-2 border-gray-100'>
+                                                <button className='dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100' onClick={() => {
+                                                    signOut(auth);
+                                                    navigate('/');
+                                                }}>LogOut</button>
+                                            </li>
+                                        </>
+                                }
                             </ul>
                         </div>
                     </div>
