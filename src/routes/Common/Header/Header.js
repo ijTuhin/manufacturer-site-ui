@@ -20,7 +20,7 @@ const Header = () => {
                         <Link to="/blogs" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Blog</Link>
                         <Link to="/portfolio" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Portfolio</Link>
                         <Link to="/about-us" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>About us</Link>
-                        <Link to="/login" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>SignIn</Link>
+                        <Link to="/login" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Login</Link>
                     </div>
                 </div>
             </div>
@@ -28,11 +28,11 @@ const Header = () => {
                 <div class="flex justify-center">
                     <div>
                         <div class="dropdown relative">
-                            <Link to="/#" className='hover:text-red-500 transition duration-150 ease-in-out text-lg' 
-                            type="button"
-                            id="dropdownMenuButton2"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"><FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
+                            <Link to="/#" className='hover:text-red-500 transition duration-150 ease-in-out text-lg'
+                                type="button"
+                                id="dropdownMenuButton2"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"><FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
                             </Link>
                             <ul
                                 class="
@@ -81,26 +81,33 @@ const Header = () => {
                                         class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
                                     >About us</Link>
                                 </li>
-                                <li>
-                                    <Link to="/my-orders"
+                                <li className='border-b-2 border-gray-100'>
+                                    <Link to="/about-us"
                                         class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                                    >My Orders</Link>
+                                    >Login</Link>
                                 </li>
-                                <li>
-                                    <Link to="/purchase"
-                                        class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                                    >Purchase</Link>
-                                </li>
-                                <li>
-                                    <Link to="/add-review"
-                                        class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                                    >Add a Review</Link>
-                                </li>
-                                <li>
-                                    <Link to="/user-profile"
-                                        class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                                    >My Profile</Link>
-                                </li>
+                                <div>
+                                    <li>
+                                        <Link to="/my-orders"
+                                            class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                                        >My Orders</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/purchase"
+                                            class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                                        >Purchase</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/add-review"
+                                            class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                                        >Add a Review</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/user-profile"
+                                            class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                                        >My Profile</Link>
+                                    </li>
+                                </div>
                             </ul>
                         </div>
                     </div>
