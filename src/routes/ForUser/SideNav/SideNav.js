@@ -7,16 +7,15 @@ const SideNav = () => {
             <h1 className="md:text-3xl text-xl text-white ml-[8%] hidden md:block">Dashboard</h1>
             <span className='nav block md:hidden'>
                 <h1 className="md:text-3xl text-xl text-white ml-[8%]">Dashboard</h1>
-                <ul className='sub-nav mt-4 absolute top-[8%] left-[20%] w-[15%] text-center mx-3 bg-white rounded rounded-tl-none'>
-                    <li className='hover:text-white hover:bg-sky-600 text-sky-600 decoration-4 hover:no-underline'>Section-1</li>
-                    <li className='hover:text-white hover:bg-sky-600 text-sky-600 decoration-4 hover:no-underline'>Section-2</li>
-                    <li className='hover:text-white hover:bg-sky-600 text-sky-600 decoration-4 hover:no-underline'>Section-3</li>
-                    <li className='hover:text-white hover:bg-sky-600 text-sky-600 decoration-4 hover:no-underline'>Section-4</li>
-                    <li className='hover:text-white hover:bg-sky-600 text-sky-600 decoration-4 hover:no-underline'>Section-5</li>
+                <ul className='sub-nav mt-4 absolute top-[8%] left-[20%] w-[28%] text-center mx-3 bg-white rounded rounded-tl-none'>
+                    <li className='hover:text-white text-left py-0.5 hover:bg-sky-600 text-sky-600'><Link  className='mx-7 px-2' to="/user-orders">My Order</Link></li>
+                    <li className='hover:text-white text-left py-0.5 border-t-2 hover:bg-sky-600 text-sky-600'><Link  className='mx-7 px-2' to="/add-review">Add Review</Link></li>
+                    <li className='hover:text-white text-left py-0.5 border-t-2 hover:bg-sky-600 text-sky-600'><Link  className='mx-7 px-2' to="/user-profile">My Profile</Link></li>
+                    <li className='hover:text-white text-left py-0.5 border-t-2 hover:bg-sky-600 text-sky-600'><Link  className='mx-7 px-2' to="/purchase">Purchase</Link></li>
                 </ul>
             </span>
-            {/* <div className='flex items-center justify-center pr-8'>
-                <div className='flex'>
+            <div className='flex items-center justify-center pr-8'>
+                {/* <div className='flex'>
                     <Link to="/user-orders" className='mx-7 px-2 bar'>My Orders</Link>
                     <span className="border-r-2"></span>
                 </div>
@@ -31,9 +30,9 @@ const SideNav = () => {
                 <div className="flex">
                     <Link to="/purchase" className='mx-7 px-2 bar'>Purchase</Link>
                     <span className="border-r-2"></span>
-                </div>
-                <button className='px-9 hover:text-red-500 transition duration-150 ease-in-out' data-bs-toggle="tooltip" title="LogOut"><FontAwesomeIcon icon={faSignOut}></FontAwesomeIcon></button>
-            </div> */}
+                </div> */}
+                {/* <button className='px-9 hover:text-red-500 transition duration-150 ease-in-out' data-bs-toggle="tooltip" title="LogOut"><FontAwesomeIcon icon={faSignOut}></FontAwesomeIcon></button> */}
+            </div>
         </div>
     );
 };
