@@ -1,12 +1,20 @@
-import { faSignOut } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-const UserNav = () => {
+import './SideNav.css';
+const SideNav = () => {
     return (
-        <div className='md:block hidden bg-sky-500 text-gray-700 py-5'>
-            <h1 className="text-3xl text-white">Dashboard</h1>
+        <div className=' bg-sky-500 text-gray-700 py-2 md:py-5'>
+            <h1 className="md:text-3xl text-xl text-white ml-[8%] hidden md:block">Dashboard</h1>
+            <span className='nav block md:hidden'>
+                <h1 className="md:text-3xl text-xl text-white ml-[8%]">Dashboard</h1>
+                <ul className='sub-nav mt-4 absolute top-[8%] left-[20%] w-[15%] text-center mx-3 bg-white rounded rounded-tl-none'>
+                    <li className='hover:text-white hover:bg-sky-600 text-sky-600 decoration-4 hover:no-underline'>Section-1</li>
+                    <li className='hover:text-white hover:bg-sky-600 text-sky-600 decoration-4 hover:no-underline'>Section-2</li>
+                    <li className='hover:text-white hover:bg-sky-600 text-sky-600 decoration-4 hover:no-underline'>Section-3</li>
+                    <li className='hover:text-white hover:bg-sky-600 text-sky-600 decoration-4 hover:no-underline'>Section-4</li>
+                    <li className='hover:text-white hover:bg-sky-600 text-sky-600 decoration-4 hover:no-underline'>Section-5</li>
+                </ul>
+            </span>
             {/* <div className='flex items-center justify-center pr-8'>
                 <div className='flex'>
                     <Link to="/user-orders" className='mx-7 px-2 bar'>My Orders</Link>
@@ -30,4 +38,4 @@ const UserNav = () => {
     );
 };
 
-export default UserNav;
+export default SideNav;

@@ -6,6 +6,7 @@ import RequireAuth from './routes/Auth/RequireAuth/RequireAuth';
 import Blogs from './routes/Blogs/Blogs';
 import Footer from './routes/Common/Footer/Footer';
 import Header from './routes/Common/Header/Header';
+import Dashboard from './routes/DashBoard/Dashboard';
 import Page404 from './routes/errorPage/Page404';
 import AddReviewPage from './routes/ForUser/AddReviewPage/AddReviewPage';
 import MyOrderPage from './routes/ForUser/MyOrderPage/MyOrderPage';
@@ -25,6 +26,10 @@ function App() {
         <Route path='/login' element={<Login></Login>} />
         <Route path='/about-us' element={<AboutUsPage></AboutUsPage>} />
         <Route path='*' element={<Page404></Page404>} />
+        <Route path='/dashboard' element={<Dashboard></Dashboard>} />
+
+
+
         <Route path='/user-orders' element={
           <RequireAuth>
             <MyOrderPage></MyOrderPage>
