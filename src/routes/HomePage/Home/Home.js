@@ -6,6 +6,7 @@ import { whatsapp } from '../../../index';
 import BusinessSummary from '../BusinessSummary/BusinessSummary';
 import Contact from '../Contact/Contact';
 import UserNav from '../../Common/UserNav/UserNav';
+import AboutUs from '../AboutUs/AboutUs';
 
 const Home = () => {
     return (
@@ -36,9 +37,11 @@ const Home = () => {
                     </div>
                 </div>
 
-
+                <div className='bg-white'>
+                    <AboutUs></AboutUs>
+                </div>
                 <Contact></Contact>
-                <div className='h-56 bg-white'></div>
+
             </div>
         </div>
     );
