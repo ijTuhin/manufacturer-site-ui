@@ -17,11 +17,7 @@ const Header = () => {
 
             <div className='shadow-lg navbar navbar-expand-lg navbar-light md:block hidden'>
                 <div className='bg-white flex items-center justify-between px-8 py-4'>
-                    <div className='flex items-center justify-between'>
-                        <img src={logo} className="w-56 pr-8" alt="" />
-                        <p className='px-3 font-mono'>Username</p>
-                        <p className='px-3 font-mono'>user@somemail.some</p>
-                    </div>
+                    <img src={logo} className="w-56 pr-8" alt="" />
                     <div className='flex'>
                         <Link to="/" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Home</Link>
                         {

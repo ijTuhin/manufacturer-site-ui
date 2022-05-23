@@ -26,8 +26,19 @@ function App() {
         <Route path='/login' element={<Login></Login>} />
         <Route path='/about-us' element={<AboutUsPage></AboutUsPage>} />
         <Route path='*' element={<Page404></Page404>} />
-        <Route path='/dashboard' element={<Dashboard></Dashboard>} />
 
+        
+
+        <Route path='/dashboard' element={
+          <RequireAuth>
+            <Dashboard></Dashboard>
+          </RequireAuth>
+        }>
+          {/* <Route index element={<MyProfilePage></MyProfilePage>}></Route>
+          <Route path="/user-orders" element={<MyOrderPage></MyOrderPage>}></Route>
+          <Route path="/purchase" element={<PurchasePage></PurchasePage>}></Route>
+          <Route path="/add-review" element={<AddReviewPage></AddReviewPage>}></Route> */}
+        </Route>
 
 
         <Route path='/user-orders' element={
@@ -50,6 +61,8 @@ function App() {
             <AddReviewPage></AddReviewPage>
           </RequireAuth>
         } />
+
+
       </Routes>
       <Footer></Footer>
     </div>
