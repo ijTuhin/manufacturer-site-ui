@@ -16,7 +16,7 @@
     width: 400px;
     height: 2px;
     background: rgb(225, 196, 123);
-    animation: animate 1s ease-out;
+    /* animation: animate 1s ease-out; */
 }
 
 .geeks::before {

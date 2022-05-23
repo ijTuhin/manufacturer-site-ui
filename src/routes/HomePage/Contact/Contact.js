@@ -3,14 +3,18 @@ import './Contact.css';
 import { whatsapp } from '../../../index';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
-
-
+import 'animate.css';
+import ScrollAnimation from 'react-animate-on-scroll';
 const Contact = () => {
     return (
         <div className='bg-transparent grid md:grid-cols-6 grid-cols-1 w-screen'>
             <div className='py-10 md:mr-28 col-span-3 bg-black/40 md:block hidden'>
-                <h2 className='text-4xl font-serif text-white md:relative md:left-28 md:top-20 contact-txt'>Contact us</h2>
-                <div className='geeks mt-4 md:relative md:left-28 md:top-20'></div>
+                <ScrollAnimation animateIn="animate__fadeInUpBig">
+                    <h2 className='text-4xl font-serif text-white md:relative md:left-28 md:top-20 contact-txt'>Contact us</h2>
+                </ScrollAnimation>
+                <ScrollAnimation animateIn="animate__fadeInRightBig">
+                    <div className='geeks mt-4 md:relative md:left-28 md:top-20'></div>
+                </ScrollAnimation>
                 <div className='flex md:relative md:left-72 md:top-20'>
                     <div className='w-56 h-36 bg-sky-900/90 flex items-center justify-center'>
                         <img src={whatsapp} className="w-8 mx-3" alt="" />
