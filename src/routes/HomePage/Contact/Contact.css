@@ -1,34 +1,10 @@
-.contact-txt {
-    animation: moveToTop 1s ease-in-out;
-    animation-delay: 0ms;
-}
-
-@keyframes moveToTop {
-    0% {
-        transform: translateY(200px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
-}
-
 .geeks {
     width: 400px;
     height: 2px;
     background: rgb(225, 196, 123);
-    /* animation: animate 1s ease-out; */
 }
 
 .geeks::before {
     content: "";
     background: none;
-}
-
-@keyframes animate {
-    0% {
-        transform: translateX(350px);
-    }
-    100% {
-        transform: translateX(0px);
-    }
 }
