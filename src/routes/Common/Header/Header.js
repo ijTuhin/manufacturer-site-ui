@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <div>
+        <div className='sticky z-50 top-0'>
             <div className='shadow-lg navbar navbar-expand-lg navbar-light md:block hidden'>
                 <div className='bg-white flex items-center justify-between px-8 py-4'>
                     <div className='flex items-center justify-between'>

@@ -9,12 +9,23 @@ import UserNav from '../../Common/UserNav/UserNav';
 import AboutUs from '../AboutUs/AboutUs';
 import 'animate.css';
 import ScrollAnimation from 'react-animate-on-scroll';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
+import { useNavigate } from 'react-router-dom';
 
 
 const Home = () => {
+    const [user] = useAuthState(auth);
+    const navigate = useNavigate();
     return (
         <div>
-            <UserNav></UserNav>
+            {
+                user ?
+                <UserNav></UserNav>
+                :
+                <></>
+            }
+            
             <Banner></Banner>
             <div className='homepage-mid-bg bg-fixed bg-no-repeat w-screen bg-cover bg-[url("https://img.freepik.com/free-photo/woman-works-with-laptop-home-holds-computer-mouse-her-left-hand_1150-43630.jpg?t=st=1653225169~exp=1653225769~hmac=00d75d7289fb993e9acf78045ce8a52b030e0113a7b025a87610501360c3c0a3&w=996")]'>
                 <div className='bg-white'>
