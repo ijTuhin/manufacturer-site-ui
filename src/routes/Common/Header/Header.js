@@ -24,6 +24,14 @@ const Header = () => {
                     </div>
                     <div className='flex'>
                         <Link to="/" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Home</Link>
+                        {
+                            user ?
+                                <>
+                                    <Link to="/dashboard" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Dashboard</Link>
+                                </>
+                                :
+                                <></>
+                        }
                         <Link to="/blogs" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Blog</Link>
                         <Link to="/portfolio" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Portfolio</Link>
                         <Link to="/about-us" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>About us</Link>
@@ -31,10 +39,7 @@ const Header = () => {
                             !user ?
                                 <Link to="/login" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Login</Link>
                                 :
-                                <><button className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded' onClick={() => {
-                                    signOut(auth);
-                                    navigate('/');
-                                }}>LogOut</button></>
+                                <></>
                         }
 
                     </div>
@@ -82,6 +87,18 @@ const Header = () => {
                                         class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
                                     >Home</Link>
                                 </li>
+                                {
+                                    user ?
+                                        <>
+                                            <li>
+                                                <Link to="/dashboard"
+                                                    class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                                                >Dashboard</Link>
+                                            </li>
+                                        </>
+                                        :
+                                        <></>
+                                }
                                 <li>
                                     <Link to="/blogs"
                                         class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
@@ -131,12 +148,6 @@ const Header = () => {
                                                     >My Profile</Link>
                                                 </li>
                                             </div>
-                                            <li className='border-b-2 border-gray-100'>
-                                                <button className='dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100' onClick={() => {
-                                                    signOut(auth);
-                                                    navigate('/');
-                                                }}>LogOut</button>
-                                            </li>
                                         </>
                                 }
                             </ul>
@@ -148,7 +159,17 @@ const Header = () => {
 
 
                 <img src={logo} className="w-40" alt="" />
-                <Link to="/#" className='hover:text-red-500 transition duration-150 ease-in-out text-lg' data-bs-toggle="tooltip" title="LogOut"><FontAwesomeIcon icon={faSignOut}></FontAwesomeIcon></Link>
+                {
+                    user ?
+                        <>
+                            <button to="/#" className='hover:text-red-500 transition duration-150 ease-in-out text-lg' onClick={() => {
+                                signOut(auth);
+                                navigate('/');
+                            }} data-bs-toggle="tooltip" title="LogOut"><FontAwesomeIcon icon={faSignOut}></FontAwesomeIcon></button>
+                        </>
+                        :
+                        <></>
+                }
             </div>
 
         </div>
