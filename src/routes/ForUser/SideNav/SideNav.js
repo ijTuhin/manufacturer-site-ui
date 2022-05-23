@@ -1,14 +1,19 @@
 import { faSignOut } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { signOut } from 'firebase/auth';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import auth from '../../../firebase.init';
 import './SideNav.css';
 const SideNav = () => {
     return (
         <div className=' bg-sky-500 text-gray-700 py-2 md:py-5'>
             <div className='md:flex md:justify-between hidden'>
                 <h1 className="md:text-3xl text-xl text-white ml-[1.5%]">Dashboard</h1>
-                <button className='px-9 hover:text-red-500 text-xl text-white transition duration-150 ease-in-out' data-bs-toggle="tooltip" title="LogOut"><FontAwesomeIcon icon={faSignOut}></FontAwesomeIcon></button>
+                <button className='px-9 hover:text-red-500 text-xl text-white transition duration-150 ease-in-out' onClick={() => {
+                                signOut(auth);
+                                Navigate('/login');
+                            }} data-bs-toggle="tooltip" title="LogOut"><FontAwesomeIcon icon={faSignOut}></FontAwesomeIcon></button>
             </div>
             <span className='nav block md:hidden'>
                 <h1 className="md:text-3xl text-xl text-white ml-[8%]">Dashboard</h1>
