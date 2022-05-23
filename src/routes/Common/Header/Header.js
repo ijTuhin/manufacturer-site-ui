@@ -20,6 +20,7 @@ const Header = () => {
                         <Link to="/blogs" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Blog</Link>
                         <Link to="/portfolio" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Portfolio</Link>
                         <Link to="/about-us" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>About us</Link>
+                        <Link to="/login" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>SignIn</Link>
                     </div>
                 </div>
             </div>

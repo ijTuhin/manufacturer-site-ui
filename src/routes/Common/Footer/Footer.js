@@ -15,7 +15,7 @@ const Footer = () => {
             </div>
             <div className='md:flex md:justify-center md:items-start md:mx-56 md:col-span-4'>
                 <div className='md:mx-6 md:mb-0 mb-6 mx-12'>
-                    <h1 className='text-2xl text-sky-600 font-medium'>Chittagong Offiice/Factory</h1>
+                    <h1 className='text-2xl text-sky-600 font-medium'>Chittagong Offiice /Factory</h1>
                     <p className='text-xl'>Employees</p>
                     <small>Khowaj Nagar, P.O.: Ajimpara, <br />
                         P.S.: Karnafuly <br />
@@ -29,7 +29,7 @@ const Footer = () => {
                         www.goldensonbd.com</small>
                 </div>
                 <div className='md:mx-6 md:mb-0 mb-6 mx-12'>
-                    <h1 className='text-2xl text-sky-600 font-medium'>Share Office/Dhaka Office</h1>
+                    <h1 className='text-2xl text-sky-600 font-medium'>Share Office/ Dhaka Office</h1>
                     <p className='text-xl'>Factory Space</p>
                     <small>Road # 90, House # 10/B, 1st Floor <br />
                         Gulshan-2, Dhaka-1212, Bangladesh. <br />
