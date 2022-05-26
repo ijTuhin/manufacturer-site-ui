@@ -4,6 +4,7 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, Outlet } from 'react-router-dom';
 import auth from '../../firebase.init';
+import Header from '../Common/Header/Header';
 import SideNav from '../ForUser/SideNav/SideNav';
 
 const Dashboard = () => {
@@ -11,12 +12,13 @@ const Dashboard = () => {
     console.log(user.displayName)
     return (
         <div>
+            <Header></Header>
             <SideNav></SideNav>
-            <div className='md:flex hidden'>
-                <div className='ml-60 px-20 w-full h-[500px] bg-slate-300'>
+            <div className='md:flex hidden relative'>
+                <div className='ml-60 w-full h-full bg-slate-200'>
                     <Outlet />
                 </div>
-                <div className="flex flex-col justify-between w-60 bg-white h-[500px] absolute" id="sidenavSecExample">
+                <div className="flex flex-col justify-between w-60 h-full bg-white shadow-md absolute" id="sidenavSecExample">
                     <div>
                         <div className="pt-4 pb-2 px-6">
                             <a href="#!">
@@ -35,7 +37,7 @@ const Dashboard = () => {
                                 </div>
                             </a>
                         </div>
-                        <hr className="my-2" />
+                        <hr className="my-2 bg-white" />
                         <ul className="relative px-1">
                             <li className="relative">
                                 <Link to='/dashboard' className="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="primary">
@@ -65,7 +67,7 @@ const Dashboard = () => {
                     </div>
 
                     <div className="text-center">
-                        <hr className="m-0" />
+                        <hr className=" bg-white"/>
                         <p className="py-2 text-sm text-gray-700">tailwind-elements.com</p>
                     </div>
                 </div>

@@ -3,7 +3,7 @@ import { logo } from '../../../index';
 import './Header.css';
 import { faBars, faMessage, faSignOut, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { signOut } from 'firebase/auth';
@@ -19,28 +19,35 @@ const Header = () => {
                 <div className='bg-white flex items-center justify-between px-8 py-4'>
                     <img src={logo} className="w-56 pr-8" alt="" />
                     <div className='flex'>
-                        <Link to="/" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Home</Link>
+                        <Link to="/" className='px-1.5 mx-1.5 text-lg hover:text-black rounded bar'>Home</Link>
                         {
                             user ?
                                 <>
-                                    <Link to="/dashboard" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Dashboard</Link>
+                                    <Link to="/dashboard" className='px-1.5 mx-1.5 text-lg hover:text-black rounded bar'>Dashboard</Link>
                                 </>
                                 :
                                 <></>
                         }
-                        <Link to="/blogs" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Blog</Link>
-                        <Link to="/portfolio" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Portfolio</Link>
-                        <Link to="/about-us" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>About us</Link>
+                        <Link to="/blogs" className='px-1.5 mx-1.5 text-lg hover:text-black rounded bar'>Blog</Link>
+                        <Link to="/portfolio" className='px-1.5 mx-1.5 text-lg hover:text-black rounded bar'>Portfolio</Link>
+                        <Link to="/about-us" className='px-1.5 mx-1.5 text-lg hover:text-black rounded bar'>About us</Link>
                         {
                             !user ?
-                                <Link to="/login" className='px-3 text-lg hover:bg-blue-200 py-0.5 rounded'>Login</Link>
+                                <Link to="/login" className='px-1.5 mx-1.5 text-lg hover:text-black rounded bar'>Login</Link>
                                 :
-                                <></>
+                                <>
+                                    <button className='px-3 text-lg hover:text-red-500 py-0.5 rounded' onClick={() => {
+                                        signOut(auth);
+                                        Navigate('/login');
+                                    }} data-bs-toggle="tooltip" title="LogOut"><FontAwesomeIcon icon={faSignOut}></FontAwesomeIcon></button>
+                                </>
                         }
 
                     </div>
                 </div>
             </div>
+
+
             <div className='shadow-lg navbar navbar-expand-lg navbar-light bg-white md:hidden flex items-center justify-between p-6'>
                 <div class="flex justify-center">
                     <div>

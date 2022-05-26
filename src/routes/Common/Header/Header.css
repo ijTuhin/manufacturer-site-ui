@@ -3,13 +3,13 @@
     position: relative;
   }
   .bar:before {    
-    bottom: -7px;
+    bottom: -4px;
     content: "";
     display: block;
     height: 2.75px;
     left: 50%;
     position: absolute;
-    background: rgb(233, 233, 233);
+    background: black;
     transition: width 1s ease-in-out 0s, left 1s ease-in-out 0s;
     width: 0;
   }

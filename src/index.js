@@ -35,3 +35,5 @@ export const google1 = require('./images/icons/google.png');
 export const youtube = require('./images/icons/youtube.png');
 export const deleteBtn = require('./images/icons/delete.png');
 export const rightArrow = require('./images/icons/chevron.png');
+export const downArrow = require('./images/icons/down-arrow.png');
+export const portfolio = require('./images/user.jpg');
