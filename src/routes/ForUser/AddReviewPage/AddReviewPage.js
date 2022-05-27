@@ -42,19 +42,19 @@ const AddReviewPage = () => {
                 <div className='flex items-center'>
                     <h3 className='text-lg hidden'>Exprience with us</h3>
                     <div className='flex my-1.5'>
-                        <Radio className='mr-2.5' variant='fill' name="pizza" value="not Happy" {...register("review")} {...radio}>
+                        <Radio className='mr-2.5' variant='fill' name="review" value="not Happy" {...register("review")} {...radio}>
                             Not Happy
                         </Radio>
-                        <Radio className='mr-2.5' variant='fill' name="pizza" value="satisfied" {...register("review")} {...radio}>
+                        <Radio className='mr-2.5' variant='fill' name="review" value="satisfied" {...register("review")} {...radio}>
                             Satisfied
                         </Radio>
-                        <Radio className='mr-2.5' variant='fill' name="pizza" value="happy" {...register("review")} {...radio}>
+                        <Radio className='mr-2.5' variant='fill' name="review" value="happy" {...register("review")} {...radio}>
                             Happy
                         </Radio>
-                        <Radio className='mr-2.5' variant='fill' name="pizza" value="delighted" {...register("review")} {...radio}>
+                        <Radio className='mr-2.5' variant='fill' name="review" value="delighted" {...register("review")} {...radio}>
                             Delighted
                         </Radio>
-                        <Radio className='mr-2.5' variant='fill' name="pizza" value="superb" {...register("review")} {...radio}>
+                        <Radio className='mr-2.5' variant='fill' name="review" value="superb" {...register("review")} {...radio}>
                             Superb
                         </Radio>
                         {/* <p>Selected Item: {radio.state}</p> */}
