@@ -10,6 +10,7 @@ import Footer from '../../Common/Footer/Footer';
 import 'animate.css';
 import ScrollAnimation from 'react-animate-on-scroll';
 import Header from '../../Common/Header/Header';
+import Products from '../Products/Products';
 
 
 const Home = () => {
@@ -21,6 +22,7 @@ const Home = () => {
                 <div className='bg-white'>
                     <AboutUs></AboutUs>
                 </div>
+                <Products></Products>
                 <BusinessSummary></BusinessSummary>
 
                 {/* ========================================== 

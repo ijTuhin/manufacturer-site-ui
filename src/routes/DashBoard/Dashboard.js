@@ -1,5 +1,3 @@
-import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, Outlet } from 'react-router-dom';
@@ -20,24 +18,6 @@ const Dashboard = () => {
                 </div>
                 <div className="flex flex-col justify-between w-60 h-full bg-white shadow-md absolute" id="sidenavSecExample">
                     <div>
-                        {/* <div className="pt-4 pb-2 px-6">
-                            <a href="#!">
-                                <div className="flex items-center">
-                                    <div className="shrink-0">
-                                        <FontAwesomeIcon className='text-slate-500 ml-1' icon={faUser}></FontAwesomeIcon>
-                                    </div>
-                                    <div className="grow ml-3">
-                                        <p className="text-sm font-semibold text-slate-600">{user.displayName}</p>
-                                    </div>
-                                </div>
-                                <div className="flex items-center">
-                                    <div className="grow ml-1">
-                                        <p className="text-sm font-semibold text-slate-600">{user.email}</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <hr className="my-2 bg-white" /> */}
                         <ul className="relative px-1">
                             <li className="relative">
                                 <Link to='/dashboard' className="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="primary">
