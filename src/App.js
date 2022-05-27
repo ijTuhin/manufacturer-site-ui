@@ -6,6 +6,10 @@ import RequireAuth from './routes/Auth/RequireAuth/RequireAuth';
 import Blogs from './routes/Blogs/Blogs';
 import Dashboard from './routes/DashBoard/Dashboard';
 import Page404 from './routes/errorPage/Page404';
+import AddProduct from './routes/ForAdmin/AddProduct/AddProduct';
+import ManageOrders from './routes/ForAdmin/ManageOrders/ManageOrders';
+import ManageProducts from './routes/ForAdmin/ManageProducts/ManageProducts';
+import ManageUser from './routes/ForAdmin/ManageUser/ManageUser';
 import AddReviewPage from './routes/ForUser/AddReviewPage/AddReviewPage';
 import MyOrderPage from './routes/ForUser/MyOrderPage/MyOrderPage';
 import MyProfilePage from './routes/ForUser/MyProfilePage/MyProfilePage';
@@ -31,6 +35,11 @@ function App() {
           <Route path="user-orders" element={<MyOrderPage></MyOrderPage>}></Route>
           <Route path="purchase" element={<PurchasePage></PurchasePage>}></Route>
           <Route path="add-review" element={<AddReviewPage></AddReviewPage>}></Route>
+
+          <Route path="manage-products" element={<ManageProducts></ManageProducts>}></Route>
+          <Route path="manage-orders" element={<ManageOrders></ManageOrders>}></Route>
+          <Route path="manage-user" element={<ManageUser></ManageUser>}></Route>
+          <Route path="add-products" element={<AddProduct></AddProduct>}></Route>
         </Route>
 
 
