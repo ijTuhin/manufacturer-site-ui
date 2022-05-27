@@ -16,6 +16,7 @@ import MyProfilePage from './routes/ForUser/MyProfilePage/MyProfilePage';
 import PurchasePage from './routes/ForUser/PurchasePage/PurchasePage';
 import Home from './routes/HomePage/Home/Home';
 import Portfolio from './routes/PortfolioPage/Portfolio/Portfolio';
+import ProductsPage from './routes/ProductsPage/ProductsPage';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path='/portfolio' element={<Portfolio></Portfolio>} />
         <Route path='/login' element={<Login></Login>} />
         <Route path='/about-us' element={<AboutUsPage></AboutUsPage>} />
+        <Route path='/products' element={<ProductsPage></ProductsPage>} />
         <Route path='*' element={<Page404></Page404>} />
 
 
