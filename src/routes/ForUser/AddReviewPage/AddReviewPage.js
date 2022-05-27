@@ -3,6 +3,7 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import auth from '../../../firebase.init';
+import {anonymous} from '../../../index';
 import '@djthoms/pretty-checkbox';
 import './AddReviewPage.css';
 
@@ -13,7 +14,18 @@ const AddReviewPage = () => {
 
     const onSubmit = data => {
         console.log(data);
-        data = '';
+        const url = `http://localhost:5000/review`;
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(res=> res.json())
+        .then(result =>{
+            console.log(result);
+        } )
     };
 
     const reviewAdded = () => {
@@ -37,24 +49,96 @@ const AddReviewPage = () => {
         transition
         ease-in-out
         m-0
-        focus:text-gray-700" value={user.email} placeholder="Inventory Item Name" {...register("email")} />
+        focus:text-gray-700" value={user?.email} placeholder="Your Email" {...register("email")} />
+                {
+                    user?.displayName ?
+                        <>
+                            <input className="hidden form-control mb-0.5
+        w-[30em]
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white/80 bg-clip-padding
+        border border-solid border-gray-400
+        rounded-sm
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700" value={user?.displayName} placeholder="Your Name" {...register("name")} />
+                        </>
+                        :
+                        <>
+                        <input className="hidden form-control mb-0.5
+        w-[30em]
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white/80 bg-clip-padding
+        border border-solid border-gray-400
+        rounded-sm
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700" value='Anonymous User' placeholder="Your Name" {...register("name")} />
+                        </>
+                }
+                {
+                    user?.photoURL ?
+                        <>
+                            <input className="hidden form-control mb-0.5
+        w-[30em]
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white/80 bg-clip-padding
+        border border-solid border-gray-400
+        rounded-sm
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700" value={user?.photoURL} placeholder="Your Name" {...register("userimg")} />
+                        </>
+                        :
+                        <>
+                            <input className="hidden form-control mb-0.5
+        w-[30em]
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white/80 bg-clip-padding
+        border border-solid border-gray-400
+        rounded-sm
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700" value={anonymous} placeholder="Your Name" {...register("userimg")} />
+                        </>
+                }
 
                 <div className='flex items-center'>
                     <h3 className='text-lg hidden'>Exprience with us</h3>
                     <div className='flex my-1.5'>
-                        <Radio className='mr-2.5' variant='fill' name="review" value="not Happy" {...register("review")} {...radio}>
+                        <Radio className='mr-2.5' variant='fill' name="review" value="not Happy" {...register("userreview")} {...radio}>
                             Not Happy
                         </Radio>
-                        <Radio className='mr-2.5' variant='fill' name="review" value="satisfied" {...register("review")} {...radio}>
+                        <Radio className='mr-2.5' variant='fill' name="review" value="satisfied" {...register("userreview")} {...radio}>
                             Satisfied
                         </Radio>
-                        <Radio className='mr-2.5' variant='fill' name="review" value="happy" {...register("review")} {...radio}>
+                        <Radio className='mr-2.5' variant='fill' name="review" value="happy" {...register("userreview")} {...radio}>
                             Happy
                         </Radio>
-                        <Radio className='mr-2.5' variant='fill' name="review" value="delighted" {...register("review")} {...radio}>
+                        <Radio className='mr-2.5' variant='fill' name="review" value="delighted" {...register("userreview")} {...radio}>
                             Delighted
                         </Radio>
-                        <Radio className='mr-2.5' variant='fill' name="review" value="superb" {...register("review")} {...radio}>
+                        <Radio className='mr-2.5' variant='fill' name="review" value="superb" {...register("userreview")} {...radio}>
                             Superb
                         </Radio>
                         {/* <p>Selected Item: {radio.state}</p> */}
