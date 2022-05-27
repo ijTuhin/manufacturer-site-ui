@@ -11,6 +11,7 @@ import 'animate.css';
 import ScrollAnimation from 'react-animate-on-scroll';
 import Header from '../../Common/Header/Header';
 import Products from '../Products/Products';
+import Reviews from '../Reviews/Reviews';
 
 
 const Home = () => {
@@ -23,6 +24,7 @@ const Home = () => {
                     <AboutUs></AboutUs>
                 </div>
                 <Products></Products>
+                <Reviews></Reviews>
                 <BusinessSummary></BusinessSummary>
 
                 {/* ========================================== 
