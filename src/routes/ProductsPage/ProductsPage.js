@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { rightArrow } from '../../index';
-import { Link } from 'react-router-dom';
 import Product from '../HomePage/Product/Product';
 import Header from '../Common/Header/Header';
 

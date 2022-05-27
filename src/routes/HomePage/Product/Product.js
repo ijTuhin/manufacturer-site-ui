@@ -1,7 +1,7 @@
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Product = ({ product }) => {
     const {
@@ -12,7 +12,10 @@ const Product = ({ product }) => {
         minimum,
         available,
         description } = product;
-    console.log(img);
+    const navigate = useNavigate();
+    const handlePurchase = _id => {
+        navigate(`/dashboard/purchase`);
+    }
     return (
         <div className='w-72 h-full flex flex-col justify-center items-center'>
             <div class="bg-white relative">
@@ -28,7 +31,7 @@ const Product = ({ product }) => {
 
                 </div>
                 <div class="w-full text-gray-600">
-                    <button type="button" class="p-1.5 w-full border border-t-gray-400 rounded-sm hover:bg-black hover:text-gray-300">Buy Now <FontAwesomeIcon icon={faCartPlus}></FontAwesomeIcon></button>
+                    <button type="submit" onClick={() => handlePurchase(_id)} class="p-1.5 w-full border border-t-gray-400 rounded-sm hover:bg-black hover:text-gray-300">Buy Now <FontAwesomeIcon icon={faCartPlus}></FontAwesomeIcon></button>
                 </div>
             </div>
         </div>
