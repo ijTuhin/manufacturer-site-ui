@@ -11,6 +11,7 @@ const Reviews = () => {
                 setReviews(data);
             });
     }, []);
+    console.log(reviews.length)
     return (
         <div className='w-full h-screen bg-white'>
             <section class="mb-20 text-gray-700">
@@ -24,13 +25,13 @@ const Reviews = () => {
                 </div>
 
                 <div class="grid md:grid-cols-3 grid-cols-1 text-center">
-                {/* {
-                    reviews.slice(0,4).map(userReview => <Reviews
-                        key={userReview._id}
-                        userReview={userReview}
+                {
+                    reviews.slice(0,3).map(review => <Review
+                        key={review._id}
+                        review={review}
                     >
-                    </Reviews>)
-                } */}
+                    </Review>)
+                }
                 </div>
             </section>
         </div>
