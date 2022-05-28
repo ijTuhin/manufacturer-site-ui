@@ -16,6 +16,7 @@ const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
     let error;
+    const data = {name, email};
 
     const from = location.state?.from?.pathname || "/";
     const [
@@ -42,6 +43,19 @@ const Login = () => {
 
         if (notRegistered) {
             createUserWithEmailAndPassword(email, password);
+
+            const url = `http://localhost:5000/user`;
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(res => res.json())
+                .then(result => {
+                    console.log(result);
+                })
         }
         else {
             signInWithEmailAndPassword(email, password);
@@ -110,7 +124,7 @@ const Login = () => {
                                 <input
                                     onBlur={event => setName(event.target.value)}
                                     type="text"
-                                    className="form-control block w-full px-2.5 md:px-4 py-1.5 text-sm md:text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name='name'
+                                    className="form-control block w-full px-2.5 md:px-4 py-1.5 text-sm md:text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name='displayName'
                                     placeholder="User Name"
                                 />
                             </div>

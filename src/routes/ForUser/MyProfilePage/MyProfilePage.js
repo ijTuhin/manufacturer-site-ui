@@ -47,7 +47,7 @@ const MyProfilePage = () => {
         transition
         ease-in-out
         m-0
-        focus:text-gray-700" placeholder="User Name" {...register("name")} />
+        focus:text-gray-700" placeholder="User Name" {...register("displayName")} />
                             <input className="col-span-2 form-control mb-2.5
         
         px-3
