@@ -9,7 +9,7 @@ const PurchasePage = () => {
     const [reload, setReload] = useState(false);
 
     useEffect(() => {
-        const url = `http://localhost:5000/product/${id}`;
+        const url = `https://dry-journey-38445.herokuapp.com/product/${id}`;
         console.log(url);
         fetch(url)
             .then(res => res.json())
