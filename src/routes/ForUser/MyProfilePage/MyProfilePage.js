@@ -1,17 +1,39 @@
 import { Radio, useRadioState } from 'pretty-checkbox-react';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
+import { useParams } from 'react-router-dom';
 import auth from '../../../firebase.init';
 
 const MyProfilePage = () => {
     const [user] = useAuthState(auth);
     const { register, handleSubmit } = useForm();
     const radio = useRadioState();
+    const { email } = useParams();
+    const [profile, setProfile] = useState({});
+    const [reload, setReload] = useState(false);
+
+    useEffect(() => {
+        const url = `https://dry-journey-38445.herokuapp.com/user/${email}`;
+        console.log(url);
+        fetch(url)
+            .then(res => res.json())
+            .then(data => console.log(data));
+    }, [])
 
     const onSubmit = data => {
-        console.log(data);
-        data = '';
+        const url = `https://dry-journey-38445.herokuapp.com/user`;
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
+            })
     };
 
     return (
@@ -19,7 +41,16 @@ const MyProfilePage = () => {
             <h2 className='text-2xl font-serif text-gray-600 font-bold'>Profile Information</h2>
             <div className='w-full border-t-[1px] border-black'></div>
             <div className='mb-10'>
-                <p className='mt-2 font-light'><span className='text-base font-medium text-gray-600 mr-1'>Name: </span>{user.displayName}</p>
+                {
+                    user?.displayName ?
+                        <>
+                            <p className='mt-2 font-light'><span className='text-base font-medium text-gray-600 mr-1'>Name: </span>{user.displayName}</p>
+                        </>
+                        :
+                        <>
+                            <p className='mt-2 font-light'><span className='text-base font-medium text-gray-600 mr-1'>Name: </span>{profile.displayName}</p>
+                        </>
+                }
                 <p className='mb-2 font-light'><span className='text-base font-medium text-gray-600 mr-1'>Email: </span>{user.email}</p>
                 <p className='mb-2 font-light'><span className='text-base font-medium text-gray-600 mr-1'>Insititute Name: </span>{user.institute}</p>
                 <p className='mb-2 font-light'><span className='text-base font-medium text-gray-600 mr-1'>Phone Number: </span>{user.phone}</p>

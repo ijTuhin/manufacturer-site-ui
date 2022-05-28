@@ -2,13 +2,14 @@ import { logo } from '../../../index';
 import './Header.css';
 import { faBars, faMessage, faSignOut, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { signOut } from 'firebase/auth';
 
 const Header = () => {
     const [user] = useAuthState(auth);
+    const { id } = useParams();
     const navigate = useNavigate();
     const logout = () => {
         signOut(auth);
@@ -34,7 +35,7 @@ const Header = () => {
                         {
                             user ?
                                 <>
-                                    <Link to="/dashboard" className='px-1.5 mx-1.5 text-lg hover:text-black rounded bar'>Dashboard</Link>
+                                    <Link to='/dashboard' className='px-1.5 mx-1.5 text-lg hover:text-black rounded bar'>Dashboard</Link>
                                 </>
                                 :
                                 <></>

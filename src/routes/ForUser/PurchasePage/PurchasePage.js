@@ -15,7 +15,21 @@ const PurchasePage = () => {
             .then(res => res.json())
             .then(data => setItem(data));
     }, [])
-    console.log(id)
+
+    const [orderState, setOrderState] = useState(false);
+    const [order, setOrder] = useState('');
+    let values = parseInt(item.minimum);
+
+    // const less = item.minimum;
+    // const more = item.available;
+    // if(values>=less || values<=more ){
+    //     setOrderState(true)
+    // }
+    const increaseOrder = () => {
+        console.log('increased');
+        values =- 1;
+    }
+    
     return (
         <div className='h-screen flex flex-col items-center'>
             <div className='w-96 p-3 border-b border-gray-700'>
@@ -30,8 +44,9 @@ const PurchasePage = () => {
             </div>
             <div className='flex items-center justify-between w-96'>
                 <p className='px-3'>Order: 5</p>
+                <input type="number" name="order" value={values} className='bg-transparent border-0' id="" />
                 <div>
-                    <button className='border bg-white hover:bg-gray-100 rounded-sm text-red-600 px-3 py-0.5'><FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
+                    <button onClick={increaseOrder} className='border bg-white hover:bg-gray-100 rounded-sm text-red-600 px-3 py-0.5'><FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
                     <button className='border bg-white hover:bg-gray-100 rounded-sm text-red-600 px-3 py-0.5'><FontAwesomeIcon icon={faMinus}></FontAwesomeIcon></button>
                 </div>
             </div>

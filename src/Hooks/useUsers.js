@@ -6,7 +6,7 @@ const useUsers = () => {
     const [users, setUsers] = useState({});
 
     useEffect(() => {
-        const url = `http://localhost:5000/user/${id}`;
+        const url = `https://dry-journey-38445.herokuapp.com/user/${id}`;
         console.log(url);
         fetch(url)
             .then(res => res.json())
