@@ -6,7 +6,7 @@ const ProductsPage = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('https://dry-journey-38445.herokuapp.com//product')
+        fetch('https://dry-journey-38445.herokuapp.com/product')
             .then(res => res.json())
             .then(data => {
                 setProducts(data);

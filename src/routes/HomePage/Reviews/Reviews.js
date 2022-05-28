@@ -5,13 +5,12 @@ const Reviews = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch('https://dry-journey-38445.herokuapp.com//review')
+        fetch('https://dry-journey-38445.herokuapp.com/review')
             .then(res => res.json())
             .then(data => {
                 setReviews(data);
             });
     }, []);
-    console.log(reviews.length)
     return (
         <div className='w-full h-screen bg-white'>
             <section class="mb-20 text-gray-700">
