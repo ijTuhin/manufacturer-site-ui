@@ -14,7 +14,7 @@ const Product = ({ product }) => {
         description } = product;
     const navigate = useNavigate();
     const handlePurchase = _id => {
-        navigate(`/dashboard/purchase`);
+        navigate(`/dashboard/purchase/${_id}`);
     }
     return (
         <div className='w-72 h-full flex flex-col justify-center items-center'>
