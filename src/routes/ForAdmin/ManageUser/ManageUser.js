@@ -1,8 +1,19 @@
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import AllProduct from '../AllProduct/AllProduct';
+import Users from '../Users';
 
 const ManageUser = () => {
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/user')
+            .then(res => res.json())
+            .then(data => {
+                setUsers(data);
+            });
+    }, []);
     return (
         <div className='mx-20 my-10 h-screen'>
             <div class="flex flex-col">
@@ -28,19 +39,13 @@ const ManageUser = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-center font-medium text-gray-900">1</td>
-                                        <td class="text-sm text-gray-900 text-center font-light px-6 py-4 whitespace-nowrap">
-                                            Mark
-                                        </td>
-                                        <td class="text-sm text-gray-900 text-center font-light px-6 py-4 whitespace-nowrap">
-                                            Otto
-                                        </td>
-                                        <td class="text-sm text-gray-900 text-center font-light px-6 py-4 whitespace-nowrap">
-                                            <button className='border bg-gray-300 hover:bg-gray-500 hover:text-white rounded text-gray-800 px-4 py-2 mr-5'>Make Admin <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
-                                            <button className='border hover:bg-gray-100 bg-gray-200 rounded text-red-600 px-4 py-2'>Delete User <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon></button>
-                                        </td>
-                                    </tr>
+                                    {
+                                        users.map(user => <Users
+                                            key={user._id}
+                                            alluser={user}
+                                        >
+                                        </Users>)
+                                    }
                                 </tbody>
                             </table>
                         </div>
