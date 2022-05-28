@@ -8,7 +8,7 @@ const AddProduct = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
         console.log(data);
-        const url = `https://quiet-hamlet-97708.herokuapp.com/item`;
+        const url = `http://localhost:5000/product`;
         fetch(url, {
             method: 'POST',
             headers: {
@@ -28,7 +28,7 @@ const AddProduct = () => {
             <div className="md:w-96 w-72 my-10 py-6 px-10 rounded-lg shadow-xl bg-white mx-auto">
                 <h1 className='text-center text-xl mb-4'>Add New Items</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    {/* <input className="form-control mb-2 block
+                    <input className="form-control mb-2 block
         w-full
         px-3
         md:py-1.5 py-1
@@ -41,7 +41,7 @@ const AddProduct = () => {
         transition
         ease-in-out
         m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" value={user.email} placeholder="Inventory Item Name" {...register("email")} /> */}
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" value={user.email} placeholder="Inventory Item Name" {...register("email")} />
 
                     <input className="form-control mb-2 block
         w-full
