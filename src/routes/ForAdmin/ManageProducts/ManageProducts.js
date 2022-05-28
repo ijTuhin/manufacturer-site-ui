@@ -1,8 +1,18 @@
 import { faMinus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import AllProduct from '../AllProduct/AllProduct';
 
 const ManageProducts = () => {
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        fetch('https://dry-journey-38445.herokuapp.com/product')
+            .then(res => res.json())
+            .then(data => {
+                setProducts(data);
+            });
+    }, []);
     return (
         <div className='mx-20 my-10 h-screen'>
             <div class="flex flex-col">
@@ -22,24 +32,19 @@ const ManageProducts = () => {
                                             Available
                                         </th>
                                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">
-                                            
+
                                         </th>
-                                        
+
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-center font-medium text-gray-900">1</td>
-                                        <td class="text-sm text-gray-900 text-center font-light px-6 py-4 whitespace-nowrap">
-                                            Mark
-                                        </td>
-                                        <td class="text-sm text-gray-900 text-center font-light px-6 py-4 whitespace-nowrap">
-                                            Otto
-                                        </td>
-                                        <td class="text-sm text-gray-900 text-center font-light px-6 py-4 whitespace-nowrap">
-                                        <button className='border hover:bg-gray-100 bg-gray-200 rounded text-red-600 px-4 py-2'>Delete Product <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon></button>
-                                        </td>
-                                    </tr>
+                                    {
+                                        products.slice(0, 5).map(product => <AllProduct
+                                            key={product._id}
+                                            product={product}
+                                        >
+                                        </AllProduct>)
+                                    }
                                 </tbody>
                             </table>
                         </div>
