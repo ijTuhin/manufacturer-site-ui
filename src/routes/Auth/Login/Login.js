@@ -6,6 +6,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useToken from '../../../Hooks/useToken';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -54,7 +55,7 @@ const Login = () => {
             })
                 .then(res => res.json())
                 .then(result => {
-                    console.log(result);
+                    console.log(result.insertedId);
                 })
         }
         else {
@@ -111,6 +112,11 @@ const Login = () => {
             navigate(from, { replace: true });
         }
     })
+
+    const [token]  = useToken(user || googleUser);
+    if (token) {
+        navigate('/dashboard');
+    }
     return (
         <div className="container h-screen flex flex-col justify-start items-center px-6 py-12">
             <ToastContainer />

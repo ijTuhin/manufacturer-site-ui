@@ -1,28 +1,20 @@
-import React, { useEffect, useState } from 'react';
 import { logo } from '../../../index';
 import './Header.css';
 import { faBars, faMessage, faSignOut, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { signOut } from 'firebase/auth';
-import useUsers from '../../../Hooks/useUsers';
 
 const Header = () => {
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
-    const { id } = useParams();
-    const [users, setUsers] = useState({});
-
-    useEffect(() => {
-        const url = `http://localhost:5000/user/${id}`;
-        console.log(url);
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setUsers(data));
-    }, []);
-    console.log(users)
+    const logout = () => {
+        signOut(auth);
+        localStorage.removeItem('accessToken');
+        navigate('/login');
+    };
     return (
         <div className='sticky z-50 top-0'>
 
@@ -58,6 +50,7 @@ const Header = () => {
                                     <button className='px-3 text-lg hover:text-red-500 py-0.5 rounded' onClick={() => {
                                         signOut(auth);
                                         Navigate('/login');
+                                        localStorage.removeItem('accessToken')
                                     }} data-bs-toggle="tooltip" title="LogOut"><FontAwesomeIcon icon={faSignOut}></FontAwesomeIcon></button>
                                 </>
                         }
@@ -161,10 +154,7 @@ const Header = () => {
                 {
                     user ?
                         <>
-                            <button to="/#" className='hover:text-red-500 transition duration-150 ease-in-out text-lg' onClick={() => {
-                                signOut(auth);
-                                navigate('/');
-                            }} data-bs-toggle="tooltip" title="LogOut"><FontAwesomeIcon icon={faSignOut}></FontAwesomeIcon></button>
+                            <button to="/#" className='hover:text-red-500 transition duration-150 ease-in-out text-lg' onClick={logout} data-bs-toggle="tooltip" title="LogOut"><FontAwesomeIcon icon={faSignOut}></FontAwesomeIcon></button>
                         </>
                         :
                         <></>
