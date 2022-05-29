@@ -72,7 +72,7 @@ const PurchasePage = () => {
         const added = (parseInt(order) - parseInt(item.available)) * (-1);
         const newAvailable = {added};
         console.log(orderData, newAvailable);
-        const url = `http://localhost:5000/order`;
+        const url = `https://dry-journey-38445.herokuapp.com/order`;
         fetch(url, {
             method: 'POST',
             headers: {
@@ -85,7 +85,7 @@ const PurchasePage = () => {
                 console.log(result);
             });
 
-        const url2 = `http://localhost:5000/product/${id}`;
+        const url2 = `https://dry-journey-38445.herokuapp.com/product/${id}`;
         fetch(url2, {
             method: 'PUT',
             headers: {
