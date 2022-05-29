@@ -65,12 +65,28 @@ const PurchasePage = () => {
     }
 
     const onSubmit = data => {
-        console.log(data);
+        const itemname = item.name;
+        const itemprice = item.price;
+        const useremail = user.email;
+        const orderData = {order, itemname, useremail, itemprice};
+        console.log(orderData);
+        const url = `http://localhost:5000/order`;
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(orderData)
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
+            });
         
     };
 
     const handlePlaceOrder = () => {
-        console.log('order placed');
+        // console.log('order placed', order+1, item.name, item.price);
     }
 
     return (
