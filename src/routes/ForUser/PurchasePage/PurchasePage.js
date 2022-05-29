@@ -14,22 +14,43 @@ const PurchasePage = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => setItem(data));
-    }, [])
+    }, [reload])
 
-    const [orderState, setOrderState] = useState(false);
-    const [order, setOrder] = useState('');
-    let values = parseInt(item.minimum);
-
-    // const less = item.minimum;
-    // const more = item.available;
-    // if(values>=less || values<=more ){
-    //     setOrderState(true)
-    // }
+    const [increase, setIncrease] = useState(false);
+    const [decrease, setDecrease] = useState(false);
+    const [order, setOrder] = useState(0);
+    
     const increaseOrder = () => {
         console.log('increased');
-        values =- 1;
+        if (order < item.available) {
+            setOrder(order+1);
+            if (order > item.minimum) {
+                setDecrease(false);
+                console.log('can decrease');
+            }
+        }
+        else{
+            setIncrease(true);
+            console.log('cannot increase');
+        }
+        
     }
-    
+    const decreaseOrder = () => {
+        console.log('decreased');
+        if (order > item.minimum) {
+            if (order < item.available){
+                setIncrease(false);
+                console.log('can increase');
+            }
+            setOrder(order-1);
+        }
+        else{
+            setDecrease(true);
+            console.log('can not decrease');
+        }
+        
+    }
+
     return (
         <div className='h-screen flex flex-col items-center'>
             <div className='w-96 p-3 border-b border-gray-700'>
@@ -43,11 +64,29 @@ const PurchasePage = () => {
                 <p>Minimum: {item.minimum}</p>
             </div>
             <div className='flex items-center justify-between w-96'>
-                <p className='px-3'>Order: 5</p>
-                <input type="number" name="order" value={values} className='bg-transparent border-0' id="" />
+                <p className='px-3'>Order: </p>
                 <div>
-                    <button onClick={increaseOrder} className='border bg-white hover:bg-gray-100 rounded-sm text-red-600 px-3 py-0.5'><FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
-                    <button className='border bg-white hover:bg-gray-100 rounded-sm text-red-600 px-3 py-0.5'><FontAwesomeIcon icon={faMinus}></FontAwesomeIcon></button>
+                    {
+                        increase ?
+                            <>
+                                <button onClick={increaseOrder} disabled className='border bg-gray-400 hover:bg-gray-100 rounded-sm text-gray-700-600 px-3 py-0.5'><FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
+                            </>
+                            :
+                            <>
+                                <button onClick={increaseOrder} className='border bg-white hover:bg-gray-100 rounded-sm text-red-600 px-3 py-0.5'><FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
+                            </>
+                    }
+                    <input type="number" name="order" value={order} className='bg-transparent border-0 mx-2' id="" />
+                    {
+                        decrease ?
+                            <>
+                                <button onClick={decreaseOrder} disabled className='border bg-gray-400 hover:bg-gray-100 rounded-sm text-gray-700-600 px-3 py-0.5'><FontAwesomeIcon icon={faMinus}></FontAwesomeIcon></button>
+                            </>
+                            :
+                            <>
+                                <button onClick={decreaseOrder} className='border bg-white hover:bg-gray-100 rounded-sm text-red-600 px-3 py-0.5'><FontAwesomeIcon icon={faMinus}></FontAwesomeIcon></button>
+                            </>
+                    }
                 </div>
             </div>
         </div>
