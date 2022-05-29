@@ -24,7 +24,7 @@ const PurchasePage = () => {
         console.log('increased');
         if (order < item.available) {
             setOrder(order+1);
-            if (order > item.minimum) {
+            if (order > (item.minimum-1)) {
                 setDecrease(false);
                 console.log('can decrease');
             }
