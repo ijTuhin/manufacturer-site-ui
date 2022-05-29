@@ -23,6 +23,9 @@ const ViewOrders = ({ allorder }) => {
             <td class="text-sm text-gray-900 text-center font-light px-6 py-4 whitespace-nowrap">
                 {useremail}
             </td>
+            <td class="text-sm text-gray-900 text-center font-light px-6 py-4 whitespace-nowrap">
+                Pending
+            </td>
         </tr>
     );
 };

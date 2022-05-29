@@ -10,15 +10,18 @@ const MyProfilePage = () => {
     const { register, handleSubmit } = useForm();
     const radio = useRadioState();
     const { email } = useParams();
-    const [profile, setProfile] = useState({});
+    const [profile, setProfile] = useState([]);
     const [reload, setReload] = useState(false);
 
     useEffect(() => {
-        const url = `https://dry-journey-38445.herokuapp.com/user/${email}`;
+        const url = `https://dry-journey-38445.herokuapp.com/user/${user.email}`;
         console.log(url);
         fetch(url)
             .then(res => res.json())
-            .then(data => console.log(data));
+            .then(data => {
+                console.log(data);
+                setProfile(data);
+            });
     }, [])
 
     const onSubmit = data => {
