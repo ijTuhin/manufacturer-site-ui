@@ -11,13 +11,13 @@ import useToken from '../../../Hooks/useToken';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [name, setName] = useState('');
+    const [displayName, setName] = useState('');
     const [notRegistered, setNotRegistered] = useState(false);
     const [notReset, setNotReset] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
     let error;
-    const data = {name, email};
+    const data = {displayName, email};
 
     const from = location.state?.from?.pathname || "/";
     const [
