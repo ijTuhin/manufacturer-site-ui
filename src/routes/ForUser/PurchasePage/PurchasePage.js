@@ -26,12 +26,12 @@ const PurchasePage = () => {
     const [order, setOrder] = useState(0);
     const [orderBtn, setOrderBtn] = useState(false);
 
-    
+
     const increaseOrder = () => {
-        if(order < (item.minimum -1)){
+        if (order < (item.minimum - 1)) {
             setOrderBtn(false);
         }
-        else{
+        else {
             setOrderBtn(true);
         }
         console.log('increased');
@@ -46,7 +46,7 @@ const PurchasePage = () => {
             setIncrease(true);
             console.log('cannot increase');
         }
-
+        console.log(order)
     }
     const decreaseOrder = () => {
         console.log('decreased');
@@ -66,18 +66,7 @@ const PurchasePage = () => {
 
     const onSubmit = data => {
         console.log(data);
-        // const url = `https://dry-journey-38445.herokuapp.com/product`;
-        // fetch(url, {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(data)
-        // })
-        //     .then(res => res.json())
-        //     .then(result => {
-        //         console.log(result);
-        //     })
+        
     };
 
     const handlePlaceOrder = () => {
@@ -91,6 +80,11 @@ const PurchasePage = () => {
                     <img src={item.img} alt="" />
                 </div>
                 <form onSubmit={handleSubmit(onSubmit)}>
+                    <div className='hidden'>
+                        <input type="text" value={user.email} className='bg-transparent border-0 w-8 mx-2' {...register("useremail")} />
+                        <input type="number" value={item.name} className='bg-transparent border-0 w-8 mx-2' {...register("itemname")} />
+                        <input type="number" value={item.price} className='bg-transparent border-0 w-8 mx-2' {...register("itemprice")} />
+                    </div>
                     <div className='w-96 py-3'>
                         <h1 className='text-2xl font-medium'>{item.name}</h1>
                         <p>{item.description}</p>
@@ -110,7 +104,7 @@ const PurchasePage = () => {
                                         </>
                                         :
                                         <>
-                                            <button onClick={increaseOrder} className='border bg-white hover:bg-gray-100 rounded-sm text-red-600 px-3 py-0.5'><FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
+                                            <button type='button' onClick={increaseOrder} className='border bg-white hover:bg-gray-100 rounded-sm text-red-600 px-3 py-0.5'><FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
                                         </>
                                 }
                                 {
@@ -120,7 +114,7 @@ const PurchasePage = () => {
                                         </>
                                         :
                                         <>
-                                            <button onClick={decreaseOrder} className='border bg-white hover:bg-gray-100 rounded-sm text-red-600 px-3 py-0.5'><FontAwesomeIcon icon={faMinus}></FontAwesomeIcon></button>
+                                            <button type='button' onClick={decreaseOrder} className='border bg-white hover:bg-gray-100 rounded-sm text-red-600 px-3 py-0.5'><FontAwesomeIcon icon={faMinus}></FontAwesomeIcon></button>
                                         </>
                                 }
 
