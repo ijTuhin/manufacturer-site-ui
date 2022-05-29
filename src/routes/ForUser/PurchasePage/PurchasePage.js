@@ -24,8 +24,16 @@ const PurchasePage = () => {
     const [increase, setIncrease] = useState(false);
     const [decrease, setDecrease] = useState(false);
     const [order, setOrder] = useState(0);
+    const [orderBtn, setOrderBtn] = useState(false);
 
+    
     const increaseOrder = () => {
+        if(order < (item.minimum -1)){
+            setOrderBtn(false);
+        }
+        else{
+            setOrderBtn(true);
+        }
         console.log('increased');
         if (order < item.available) {
             setOrder(order + 1);
@@ -58,18 +66,18 @@ const PurchasePage = () => {
 
     const onSubmit = data => {
         console.log(data);
-        const url = `https://dry-journey-38445.herokuapp.com/product`;
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-            .then(res => res.json())
-            .then(result => {
-                console.log(result);
-            })
+        // const url = `https://dry-journey-38445.herokuapp.com/product`;
+        // fetch(url, {
+        //     method: 'POST',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(data)
+        // })
+        //     .then(res => res.json())
+        //     .then(result => {
+        //         console.log(result);
+        //     })
     };
 
     const handlePlaceOrder = () => {
@@ -77,7 +85,7 @@ const PurchasePage = () => {
     }
 
     return (
-        <div  className='h-screen bg-white'>
+        <div className='h-screen bg-white'>
             <div className='flex justify-center items-start py-20'>
                 <div class="pr-10 -mt-5 flex justify-start">
                     <img src={item.img} alt="" />
@@ -119,9 +127,20 @@ const PurchasePage = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='flex items-center justify-between w-96'>
-                        <button type='submit' onClick={handlePlaceOrder} class="p-1.5 w-full border border-t-gray-400 rounded-sm hover:bg-black hover:text-gray-300">Place Order</button>
-                    </div>
+                    {
+                        orderBtn ?
+                            <>
+                                <div className='flex items-center justify-between w-96'>
+                                    <button type='submit' onClick={handlePlaceOrder} class="p-1.5 w-full border border-t-gray-400 rounded-sm hover:bg-black hover:text-gray-300">Place Order</button>
+                                </div>
+                            </>
+                            :
+                            <>
+                                <div className='flex items-center justify-between w-96'>
+                                    <button type='submit' disabled onClick={handlePlaceOrder} class="p-1.5 w-full border border-t-gray-400 rounded-sm">Place Order</button>
+                                </div>
+                            </>
+                    }
                 </form>
             </div>
         </div>
