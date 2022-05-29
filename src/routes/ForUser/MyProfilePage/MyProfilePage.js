@@ -2,16 +2,13 @@ import { Radio, useRadioState } from 'pretty-checkbox-react';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router-dom';
 import auth from '../../../firebase.init';
 
 const MyProfilePage = () => {
     const [user] = useAuthState(auth);
     const { register, handleSubmit } = useForm();
     const radio = useRadioState();
-    const { email } = useParams();
     const [profile, setProfile] = useState([]);
-    const [reload, setReload] = useState(false);
 
     useEffect(() => {
         const url = `https://dry-journey-38445.herokuapp.com/user/${user.email}`;
