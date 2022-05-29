@@ -68,8 +68,10 @@ const PurchasePage = () => {
         const itemname = item.name;
         const itemprice = item.price;
         const useremail = user.email;
-        const orderData = {order, itemname, useremail, itemprice};
-        console.log(orderData);
+        const orderData = { order, itemname, useremail, itemprice };
+        const added = (parseInt(order) - parseInt(item.available)) * (-1);
+        const newAvailable = {added};
+        console.log(orderData, newAvailable);
         const url = `http://localhost:5000/order`;
         fetch(url, {
             method: 'POST',
@@ -82,7 +84,21 @@ const PurchasePage = () => {
             .then(result => {
                 console.log(result);
             });
-        
+
+        const url2 = `http://localhost:5000/product/${id}`;
+        fetch(url2, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newAvailable),
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('success', data);
+                setReload(!reload);
+            })
+
     };
 
     const handlePlaceOrder = () => {
