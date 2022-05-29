@@ -1,5 +1,5 @@
 import React from 'react';
-import { banner1, rightArrow } from '../../../index';
+import { banner2,banner3, rightArrow } from '../../../index';
 import 'animate.css';
 import ScrollAnimation from 'react-animate-on-scroll';
 import { Link } from 'react-router-dom';
@@ -9,10 +9,10 @@ const AboutUs = () => {
         <div className='relative flex md:flex-row flex-col-reverse'>
             <div className='bg-sky-800 md:w-[35%] h-[500px]'>
                 <ScrollAnimation animateIn="animate__backInLeft animate__slower">
-                    <img className='md:w-96 w-72 relative md:left-[35%] left-[10%] md:top-10 top-24' src={banner1} alt='' />
+                    <img className='md:w-96 w-72 relative md:left-[35%] left-[10%] md:top-10 top-24' src={banner2} alt='' />
                 </ScrollAnimation>
                 <ScrollAnimation animateIn="animate__backInRight animate__slow">
-                    <img className='md:w-96 w-72 relative md:left-[70%] left-[40%] md:bottom-14 -bottom-8' src={banner1} alt='' />
+                    <img className='md:w-96 w-72 relative md:left-[70%] left-[40%] md:bottom-14 -bottom-8' src={banner3} alt='' />
                 </ScrollAnimation>
             </div>
             <div className='md:w-[35%] md:ml-auto md:mr-[10%] md:my-auto m-[10%] md:text-base text-sm'>

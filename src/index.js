@@ -22,8 +22,6 @@ reportWebVitals();
 
 export const logo = require('./images/logo.png');
 export const anonymous = require('./images/anonymous.jpg');
-export const banner1 = require('./images/banner1.jpg');
-export const banner2 = require('./images/banner2.jpg');
 export const retails = require('./images/icons/retail.png');
 export const factory = require('./images/icons/factorySpace.png');
 export const units = require('./images/icons/units.png');
@@ -47,3 +45,6 @@ export const projectII3 = require('./images/projects/Project-II-3.png');
 export const projectIII1 = require('./images/projects/Project-III-1.png');
 export const projectIII2 = require('./images/projects/Project-III-2.png');
 export const projectIII3 = require('./images/projects/Project-III-3.png');
+export const banner1 = require('./images/pc3.jpg')
+export const banner2 = require('./images/pc4.jpg')
+export const banner3 = require('./images/pc5.jpg')

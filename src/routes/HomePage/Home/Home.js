@@ -1,6 +1,6 @@
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Banner from '../Banner/Banner';
 import { whatsapp } from '../../../index';
 import BusinessSummary from '../BusinessSummary/BusinessSummary';
@@ -12,7 +12,6 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import Header from '../../Common/Header/Header';
 import Products from '../Products/Products';
 import Reviews from '../Reviews/Reviews';
-
 
 const Home = () => {
     return (
