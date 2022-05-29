@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
+import auth from '../../../firebase.init';
 import Orders from './Orders';
 
 const MyOrderPage = () => {
+    const [user] = useAuthState(auth);
     const { useremail } = useParams();
     const [orders, setOrders] = useState([]);
     useEffect(() => {
-        const url = `https://dry-journey-38445.herokuapp.com/order/${useremail}`;
+        const url = `https://dry-journey-38445.herokuapp.com/order/${user.email}`;
         console.log(url);
         fetch(url)
             .then(res => res.json())
             .then(data => setOrders(data));
     }, []);
+    console.log(user.email, orders)
     return (
         <div className='mx-20 my-10 h-screen'>
             <div class="flex flex-col">
