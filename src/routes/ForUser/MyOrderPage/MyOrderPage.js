@@ -1,6 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import Orders from './Orders';
 
 const MyOrderPage = () => {
+    const { useremail } = useParams();
+    const [orders, setOrders] = useState([]);
+    useEffect(() => {
+        const url = `https://dry-journey-38445.herokuapp.com/order/${useremail}`;
+        console.log(url);
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setOrders(data));
+    }, []);
     return (
         <div className='mx-20 my-10 h-screen'>
             <div class="flex flex-col">
@@ -11,10 +22,10 @@ const MyOrderPage = () => {
                                 <thead class="bg-white border-b">
                                     <tr>
                                         <th scope="col" class="text-sm font-medium w-20 text-gray-900 px-6 py-4">
-                                            UserId
+                                            OrderId
                                         </th>
                                         <th scope="col" class="text-sm font-medium w-96 text-center text-gray-900 px-6 py-4">
-                                            Product
+                                            order
                                         </th>
                                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">
                                             Quantity
@@ -26,18 +37,13 @@ const MyOrderPage = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-center font-medium text-gray-900">1</td>
-                                        <td class="text-sm text-gray-900 text-center font-light px-6 py-4 whitespace-nowrap">
-                                            Mark
-                                        </td>
-                                        <td class="text-sm text-gray-900 text-center font-light px-6 py-4 whitespace-nowrap">
-                                            Otto
-                                        </td>
-                                        <td class="text-sm text-gray-900 text-center font-light px-6 py-4 whitespace-nowrap">
-                                            @mdo
-                                        </td>
-                                    </tr>
+                                {
+                                        orders.map(order => <Orders
+                                            key={order._id}
+                                            allorder={order}
+                                        >
+                                        </Orders>)
+                                    }
                                 </tbody>
                             </table>
                         </div>
