@@ -25,7 +25,7 @@ const MyProfilePage = () => {
     }, [])
 
     const onSubmit = data => {
-        const url = `https://dry-journey-38445.herokuapp.com/user`;
+        const url = `https://dry-journey-38445.herokuapp.com/user/${user.email}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -37,6 +37,7 @@ const MyProfilePage = () => {
             .then(result => {
                 console.log(result);
             })
+        console.log(data)
     };
 
     return (
@@ -55,10 +56,10 @@ const MyProfilePage = () => {
                         </>
                 }
                 <p className='mb-2 font-light'><span className='text-base font-medium text-gray-600 mr-1'>Email: </span>{user.email}</p>
-                <p className='mb-2 font-light'><span className='text-base font-medium text-gray-600 mr-1'>Insititute Name: </span>{user.institute}</p>
-                <p className='mb-2 font-light'><span className='text-base font-medium text-gray-600 mr-1'>Phone Number: </span>{user.phone}</p>
-                <p className='mb-2 font-light'><span className='text-base font-medium text-gray-600 mr-1'>LinkedIn Profile: </span>{user.linkedin}</p>
-                <p className='mb-2 font-light'><span className='text-base font-medium text-gray-600 mr-1'>Address: </span>{user.location}</p>
+                <p className='mb-2 font-light'><span className='text-base font-medium text-gray-600 mr-1'>Insititute Name: </span>{profile.institute}</p>
+                <p className='mb-2 font-light'><span className='text-base font-medium text-gray-600 mr-1'>Phone Number: </span>{profile.phone}</p>
+                <p className='mb-2 font-light'><span className='text-base font-medium text-gray-600 mr-1'>LinkedIn Profile: </span>{profile.linkedin}</p>
+                <p className='mb-2 font-light'><span className='text-base font-medium text-gray-600 mr-1'>Address: </span>{profile.location}</p>
             </div>
 
             <h2 className='text-2xl font-serif text-gray-600 font-bold'>Update Profile</h2>

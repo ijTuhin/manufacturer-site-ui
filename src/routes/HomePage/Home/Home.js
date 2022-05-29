@@ -1,6 +1,5 @@
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect, useState } from 'react';
 import Banner from '../Banner/Banner';
 import { whatsapp } from '../../../index';
 import BusinessSummary from '../BusinessSummary/BusinessSummary';
