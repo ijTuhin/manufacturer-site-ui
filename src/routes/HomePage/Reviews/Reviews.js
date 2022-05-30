@@ -12,7 +12,7 @@ const Reviews = () => {
             });
     }, []);
     return (
-        <div className='w-full h-screen bg-white'>
+        <div className='w-full h-full bg-white'>
             <section class="mb-20 text-gray-700">
                 <div class="text-center md:max-w-xl lg:max-w-3xl mx-auto">
                     <h3 class="text-3xl font-bold mb-6 text-gray-800">Testimonials</h3>
