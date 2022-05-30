@@ -27,11 +27,11 @@ const ManageOrders = () => {
                                         <th scope="col" class="text-sm font-medium w-96 text-center text-gray-900 px-6 py-4">
                                             Product
                                         </th>
-                                        <th scope="col" class="text-sm font-medium w-96 text-center text-gray-900 px-6 py-4">
-                                            Product Price
-                                        </th>
                                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">
                                             Order Quantity
+                                        </th>
+                                        <th scope="col" class="text-sm font-medium w-96 text-center text-gray-900 px-6 py-4">
+                                            Total Price
                                         </th>
                                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">
                                             User

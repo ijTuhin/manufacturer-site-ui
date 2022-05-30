@@ -6,7 +6,9 @@ const ViewOrders = ({ allorder }) => {
         useremail,
         itemname,
         order,
-        itemprice } = allorder;
+        totalprice,
+        phone,
+        address } = allorder;
     console.log(allorder)
     return (
         <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
@@ -15,13 +17,15 @@ const ViewOrders = ({ allorder }) => {
                 {itemname}
             </td>
             <td class="text-sm text-gray-900 text-center font-light px-6 py-4 whitespace-nowrap">
-                {itemprice}
-            </td>
-            <td class="text-sm text-gray-900 text-center font-light px-6 py-4 whitespace-nowrap">
                 {order}
             </td>
             <td class="text-sm text-gray-900 text-center font-light px-6 py-4 whitespace-nowrap">
-                {useremail}
+                ${totalprice}
+            </td>
+            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                <p>{useremail}</p>
+                <p>Address: {address}</p>
+                <p>Phone: {phone}</p>
             </td>
             <td class="text-sm text-gray-900 text-center font-light px-6 py-4 whitespace-nowrap">
                 Pending
