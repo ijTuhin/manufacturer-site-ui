@@ -14,7 +14,7 @@ const AddReviewPage = () => {
 
     const onSubmit = data => {
         console.log(data);
-        const url = `http://localhost:5000/review`;
+        const url = `https://dry-journey-38445.herokuapp.com/review`;
         fetch(url, {
             method: 'POST',
             headers: {
@@ -33,14 +33,14 @@ const AddReviewPage = () => {
     }
 
     return (
-        <div className='flex justify-center h-full py-20'>
-            <form onSubmit={handleSubmit(onSubmit)} className="border-0 rounded-sm shadow-xl bg-white/75 py-6 pr-6 pl-9">
-                <h1 className='text-2xl my-3'>Share your exprience with us</h1>
+        <div className='flex justify-center h-full md:py-20 md:bg-gray-200 bg-white'>
+            <form onSubmit={handleSubmit(onSubmit)} className="border-0 rounded-sm md:h-96 shadow-xl bg-white/75 py-6 pr-6 pl-9">
+                <h1 className='md:text-2xl text-lg my-3'>Share your exprience with us</h1>
                 <input className="hidden form-control mb-0.5
         w-[30em]
         px-3
         py-1.5
-        text-base
+        text-sm
         font-normal
         text-gray-700
         bg-white/80 bg-clip-padding
@@ -57,7 +57,7 @@ const AddReviewPage = () => {
         w-[30em]
         px-3
         py-1.5
-        text-base
+        text-sm
         font-normal
         text-gray-700
         bg-white/80 bg-clip-padding
@@ -74,7 +74,7 @@ const AddReviewPage = () => {
         w-[30em]
         px-3
         py-1.5
-        text-base
+        text-sm
         font-normal
         text-gray-700
         bg-white/80 bg-clip-padding
@@ -93,7 +93,7 @@ const AddReviewPage = () => {
         w-[30em]
         px-3
         py-1.5
-        text-base
+        text-sm
         font-normal
         text-gray-700
         bg-white/80 bg-clip-padding
@@ -110,7 +110,7 @@ const AddReviewPage = () => {
         w-[30em]
         px-3
         py-1.5
-        text-base
+        text-sm
         font-normal
         text-gray-700
         bg-white/80 bg-clip-padding
@@ -124,21 +124,20 @@ const AddReviewPage = () => {
                 }
 
                 <div className='flex items-center'>
-                    <h3 className='text-lg hidden'>Exprience with us</h3>
-                    <div className='flex my-1.5'>
-                        <Radio className='mr-2.5' variant='fill' name="review" value="not Happy" {...register("userreview")} {...radio}>
+                    <div className='flex md:flex-row flex-col my-1.5'>
+                        <Radio className='md:mr-2.5 md:mb-0 mb-3' variant='fill' name="review" value="not Happy" {...register("userreview")} {...radio}>
                             Not Happy
                         </Radio>
-                        <Radio className='mr-2.5' variant='fill' name="review" value="satisfied" {...register("userreview")} {...radio}>
+                        <Radio className='md:mr-2.5 md:mb-0 mb-3' variant='fill' name="review" value="satisfied" {...register("userreview")} {...radio}>
                             Satisfied
                         </Radio>
-                        <Radio className='mr-2.5' variant='fill' name="review" value="happy" {...register("userreview")} {...radio}>
+                        <Radio className='md:mr-2.5 md:mb-0 mb-3' variant='fill' name="review" value="happy" {...register("userreview")} {...radio}>
                             Happy
                         </Radio>
-                        <Radio className='mr-2.5' variant='fill' name="review" value="delighted" {...register("userreview")} {...radio}>
+                        <Radio className='md:mr-2.5 md:mb-0 mb-3' variant='fill' name="review" value="delighted" {...register("userreview")} {...radio}>
                             Delighted
                         </Radio>
-                        <Radio className='mr-2.5' variant='fill' name="review" value="superb" {...register("userreview")} {...radio}>
+                        <Radio className='md:mr-2.5 md:mb-0 mb-3' variant='fill' name="review" value="superb" {...register("userreview")} {...radio}>
                             Superb
                         </Radio>
                         {/* <p>Selected Item: {radio.state}</p> */}
@@ -169,10 +168,11 @@ const AddReviewPage = () => {
                 <textarea className="
         form-control mb-0.5
         block
-        w-[30em]
+        w-[25em]
+        md:w-[30em]
         px-3
         py-1.5
-        text-base
+        text-sm
         font-normal
         text-gray-700
         bg-white/80 bg-clip-padding
@@ -187,7 +187,7 @@ const AddReviewPage = () => {
 
 
                 <div className='w-full flex justify-end'>
-                    <input type="submit" value="Add Review" onClick={reviewAdded} className='border border-slate-300 bg-sky-500 text-white rounded px-3.5 py-0.5 my-1 mr-5 hover:bg-sky-600 hover:border-slate-300 ' />
+                    <input type="submit" value="Add Review" onClick={reviewAdded} className='border border-slate-300 bg-sky-500 text-white rounded px-3.5 py-0.5 my-1 md:mr-5 hover:bg-sky-600 hover:border-slate-300 ' />
                 </div>
             </form>
         </div>

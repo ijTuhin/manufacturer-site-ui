@@ -126,7 +126,7 @@ const Dashboard = () => {
 
 
             <div className='md:flex hidden relative'>
-                <div className='ml-60 w-full h-full bg-slate-200'>
+                <div className='ml-60 w-full h-screen bg-slate-200'>
                     <Outlet />
                 </div>
                 <div className="flex flex-col justify-between w-60 h-full bg-white shadow-md absolute" id="sidenavSecExample">
