@@ -29,6 +29,11 @@ const Header = () => {
         localStorage.removeItem('accessToken');
         navigate('/login');
     };
+
+
+    const admin = profile.role;
+
+
     return (
         <div className='sticky z-50 top-0'>
 
@@ -126,6 +131,55 @@ const Header = () => {
                                                     class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
                                                 >Dashboard</Link>
                                             </li>
+                                            <li>
+                                                <Link to="/dashboard"
+                                                    class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                                                >My Profile</Link>
+                                            </li>
+                                            {
+                                                !admin ?
+                                                    <>
+                                                        <li>
+                                                            <Link to="/dashboard/user-orders"
+                                                                class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                                                            >My Orders</Link>
+                                                        </li>
+                                                        <li>
+                                                            <Link to="dashboard/purchase/:id"
+                                                                class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                                                            >Purchase</Link>
+                                                        </li>
+                                                        <li>
+                                                            <Link to="/dashboard/add-review"
+                                                                class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                                                            >Add Review</Link>
+                                                        </li>
+                                                    </>
+                                                    :
+                                                    <>
+                                                        <li>
+                                                            <Link to="/dashboard/manage-products"
+                                                                class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                                                            >Manage Products</Link>
+                                                        </li>
+                                                        <li>
+                                                            <Link to="/dashboard/manage-orders"
+                                                                class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                                                            >Manage Orders</Link>
+                                                        </li>
+                                                        <li>
+                                                            <Link to="/dashboard/manage-user"
+                                                                class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                                                            >Manage Users</Link>
+                                                        </li>
+                                                        <li>
+                                                            <Link to="/dashboard/add-products"
+                                                                class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                                                            >Add Products</Link>
+                                                        </li>
+                                                    </>
+                                            }
+
                                         </>
                                         :
                                         <></>
