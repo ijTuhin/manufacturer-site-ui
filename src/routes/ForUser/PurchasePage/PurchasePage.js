@@ -12,6 +12,18 @@ const PurchasePage = () => {
     const [reload, setReload] = useState(false);
     const [user] = useAuthState(auth);
     const { register, handleSubmit } = useForm();
+    const [profile, setProfile] = useState([]);
+
+    useEffect(() => {
+        const url = `https://dry-journey-38445.herokuapp.com/user/${user.email}`;
+        console.log(url);
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setProfile(data);
+            });
+    }, [])
 
     useEffect(() => {
         const url = `https://dry-journey-38445.herokuapp.com/product/${id}`;
@@ -111,8 +123,17 @@ const PurchasePage = () => {
     return (
         <div className='h-full bg-white'>
             <div className='p-5'>
-                <h2>Username: </h2>
-                <h2>Email: </h2>
+                {
+                    user?.displayName ?
+                    <>
+                    <h2>Username: {user?.displayName}</h2>
+                    </>
+                    :
+                    <>
+                    <h2>Username: {profile?.displayName}</h2>
+                    </>
+                }
+                <h2>Email: {user?.email}</h2>
             </div>
             <div className='flex justify-center items-start py-20'>
                 <div class="pr-10 -mt-5 flex justify-start">
