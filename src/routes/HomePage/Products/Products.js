@@ -15,7 +15,7 @@ const Products = () => {
     }, []);
     return (
         <div className='w-full h-[100%] bg-white'>
-            <div className='grid grid-cols-3 gap-y-5 py-[8%] mx-[20%]'>
+            <div className='grid md:grid-cols-3 grid-cols-1 gap-y-5 py-[8%] mx-[20%]'>
                 {
                     products.slice(0,5).map(product => <Product
                         key={product._id}
