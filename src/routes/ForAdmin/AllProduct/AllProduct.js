@@ -15,16 +15,16 @@ const AllProduct = ({ product }) => {
     }
     return (
         <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-center font-light text-gray-900">{_id}</td>
-            <td class="text-sm text-gray-900 text-center font-light px-6 py-4 whitespace-nowrap">
+            <td class="hidden md:flex px-3 md:px-6 py-4 whitespace-nowrap text-xs md:text-sm text-center font-light text-gray-900">{_id}</td>
+            <td class="text-xs md:text-sm text-gray-900 text-center font-light px-3 md:px-6 py-4 whitespace-nowrap">
                 <p>{name}</p>
                 <p>Price: <span>{price}</span></p>
             </td>
-            <td class="text-sm text-gray-900 text-center font-light px-6 py-4 whitespace-nowrap">
+            <td class="text-xs md:text-sm text-gray-900 text-center font-light px-3 md:px-6 py-4 whitespace-nowrap">
                 <p>{available}</p>
             </td>
-            <td class="text-sm text-gray-900 text-center font-light px-6 py-4 whitespace-nowrap">
-                <button className='border hover:bg-gray-100 bg-gray-200 rounded text-red-600 px-4 py-2'>Delete Product <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon></button>
+            <td class="text-xs md:text-sm text-gray-900 text-center font-light px-3 md:px-6 py-4 whitespace-nowrap">
+                <button className='border hover:bg-gray-100 bg-gray-200 rounded text-red-600 px-1.5 md:px-4 py-2'>Delete Product</button>
             </td>
         </tr>
     );
