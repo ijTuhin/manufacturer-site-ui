@@ -6,14 +6,14 @@ import Users from '../Users';
 
 const ManageUser = () => {
     const [users, setUsers] = useState([]);
-
+    const [reload, setReload] = useState(false);
     useEffect(() => {
         fetch('https://dry-journey-38445.herokuapp.com/user')
             .then(res => res.json())
             .then(data => {
                 setUsers(data);
             });
-    }, []);
+    }, [reload]);
     return (
         <div className='mx-20 my-10 h-screen'>
             <div class="flex flex-col">

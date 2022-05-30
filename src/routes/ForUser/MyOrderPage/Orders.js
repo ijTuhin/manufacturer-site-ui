@@ -16,7 +16,7 @@ const Orders = ({ allorder }) => {
 
     const handleConfirm = () => {
         const paid = "done";
-        const updated = {itemname, order, totalprice, paid};
+        const updated = { itemname, order, totalprice, paid };
         const url = `https://dry-journey-38445.herokuapp.com/order/${user.email}/${_id}`;
         fetch(url, {
             method: 'PUT',
@@ -30,19 +30,19 @@ const Orders = ({ allorder }) => {
                 console.log(result);
                 console.log('Payment Done for Product --', itemname, paid)
             })
-        
+
     };
     const handleCancel = () => {
-        console.log(itemname,' Item deleted from Cart');
+        console.log(itemname, ' Item deleted from Cart');
         const url = `https://dry-journey-38445.herokuapp.com/order/${user.email}/${_id}`;
-            fetch(url, {
-                method: 'DELETE'
+        fetch(url, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                console.log(itemname, ' Item deleted from Cart');
             })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
-                    console.log(itemname,' Item deleted from Cart');
-                })
     }
 
 
@@ -68,18 +68,18 @@ const Orders = ({ allorder }) => {
                         <>
                             <form>
                                 <button type='button' data-bs-toggle="modal" data-bs-target="#exampleModal" className='border hover:bg-red-600 hover:text-white bg-white rounded text-red-600 px-4 py-2 mr-2'>Cancel</button>
-                            <button type='submit' onClick={handleConfirm} className='border hover:bg-green-700 bg-green-600 text-white rounded px-4 py-2'>Confirm</button>
-                            <div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
-                        id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog relative w-auto pointer-events-none">
-                            <div
-                                class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
-                                <div class="modal-body relative p-4">
-                                    Remove {itemname} from Cart?
-                                </div>
-                                <div
-                                    class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-2 rounded-b-md">
-                                    <button type="button" class="px-6
+                                <button type='submit' onClick={handleConfirm} className='border hover:bg-green-700 bg-green-600 text-white rounded px-4 py-2'>Confirm</button>
+                                <div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+                                    id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog relative w-auto pointer-events-none">
+                                        <div
+                                            class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
+                                            <div class="modal-body relative p-4">
+                                                Remove {itemname} from Cart?
+                                            </div>
+                                            <div
+                                                class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-2 rounded-b-md">
+                                                <button type="button" class="px-6
           py-2.5
           bg-red-600
           text-white
@@ -95,7 +95,7 @@ const Orders = ({ allorder }) => {
           transition
           duration-150
           ease-in-out" data-bs-dismiss="modal">Cancel</button>
-                                    <button type='submit' onClick={handleCancel} class="px-6
+                                                <button type='submit' onClick={handleCancel} class="px-6
       py-2.5
       bg-blue-600
       text-white
@@ -112,10 +112,10 @@ const Orders = ({ allorder }) => {
       duration-150
       ease-in-out
       ml-1" data-bs-dismiss="modal">Confirm</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
                             </form>
                         </>
                 }
