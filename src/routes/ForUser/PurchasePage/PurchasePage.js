@@ -64,13 +64,16 @@ const PurchasePage = () => {
 
     }
 
+    const [phone, setPhone] = useState('');
+    const [address, setAddress] = useState('');
+    const itemname = item.name;
+    const price = item.price;
+    const useremail = user.email;
+    const totalprice = price * order;
+    const orderData = {useremail, phone, address, itemname, order,  totalprice };
     const onSubmit = data => {
-        const itemname = item.name;
-        const itemprice = item.price;
-        const useremail = user.email;
-        const orderData = { order, itemname, useremail, itemprice };
         const added = (parseInt(order) - parseInt(item.available)) * (-1);
-        const newAvailable = {added};
+        const newAvailable = { added };
         console.log(orderData, newAvailable);
         const url = `https://dry-journey-38445.herokuapp.com/order`;
         fetch(url, {
@@ -106,63 +109,70 @@ const PurchasePage = () => {
     }
 
     return (
-        <div className='h-screen bg-white'>
+        <div className='h-full bg-white'>
+            <div className='p-5'>
+                <h2>Username: </h2>
+                <h2>Email: </h2>
+            </div>
             <div className='flex justify-center items-start py-20'>
                 <div class="pr-10 -mt-5 flex justify-start">
                     <img src={item.img} alt="" />
                 </div>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className='hidden'>
-                        <input type="text" value={user.email} className='bg-transparent border-0 w-8 mx-2' {...register("useremail")} />
-                        <input type="number" value={item.name} className='bg-transparent border-0 w-8 mx-2' {...register("itemname")} />
-                        <input type="number" value={item.price} className='bg-transparent border-0 w-8 mx-2' {...register("itemprice")} />
-                    </div>
-                    <div className='w-96 py-3'>
-                        <h1 className='text-2xl font-medium'>{item.name}</h1>
-                        <p>{item.description}</p>
-                        <p>Price: ${item.price}</p>
-                        <p>Available: {item.available}</p>
-                        <p>Minimum: {item.minimum}</p>
-                        <div className='flex items-center justify-between w-96'>
-                            <div className='flex'>
-                                <p>Item Added: </p>
-                                <input type="number" value={order} className='bg-transparent border-0 w-8 mx-2' {...register("order")} />
-                            </div>
-                            <div className=''>
-                                {
-                                    increase ?
-                                        <>
-                                            <button onClick={increaseOrder} disabled className='border bg-gray-400 hover:bg-gray-100 rounded-sm text-gray-700-600 px-3 py-0.5'><FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
-                                        </>
-                                        :
-                                        <>
-                                            <button type='button' onClick={increaseOrder} className='border bg-white hover:bg-gray-100 rounded-sm text-red-600 px-3 py-0.5'><FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
-                                        </>
-                                }
-                                {
-                                    decrease ?
-                                        <>
-                                            <button onClick={decreaseOrder} disabled className='border bg-gray-400 hover:bg-gray-100 rounded-sm text-gray-700-600 px-3 py-0.5'><FontAwesomeIcon icon={faMinus}></FontAwesomeIcon></button>
-                                        </>
-                                        :
-                                        <>
-                                            <button type='button' onClick={decreaseOrder} className='border bg-white hover:bg-gray-100 rounded-sm text-red-600 px-3 py-0.5'><FontAwesomeIcon icon={faMinus}></FontAwesomeIcon></button>
-                                        </>
-                                }
+                <div className='w-96 py-3'>
+                    <h1 className='text-2xl font-medium'>{item.name}</h1>
+                    <p>{item.description}</p>
+                    <p>Price: ${item.price}</p>
+                    <p>Available: {item.available}</p>
+                    <p>Minimum: {item.minimum}</p>
+                    <div className='flex items-center justify-between w-96'>
+                        <div className='flex'>
+                            <p>Item Added: </p>
+                            <input type="number" value={order} className='bg-transparent border-0 w-8 mx-2' {...register("order")} />
+                        </div>
+                        <div className=''>
+                            {
+                                increase ?
+                                    <>
+                                        <button onClick={increaseOrder} disabled className='border bg-gray-400 hover:bg-gray-100 rounded-sm text-gray-700-600 px-3 py-0.5'><FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
+                                    </>
+                                    :
+                                    <>
+                                        <button type='button' onClick={increaseOrder} className='border bg-white hover:bg-gray-100 rounded-sm text-red-600 px-3 py-0.5'><FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
+                                    </>
+                            }
+                            {
+                                decrease ?
+                                    <>
+                                        <button onClick={decreaseOrder} disabled className='border bg-gray-400 hover:bg-gray-100 rounded-sm text-gray-700-600 px-3 py-0.5'><FontAwesomeIcon icon={faMinus}></FontAwesomeIcon></button>
+                                    </>
+                                    :
+                                    <>
+                                        <button type='button' onClick={decreaseOrder} className='border bg-white hover:bg-gray-100 rounded-sm text-red-600 px-3 py-0.5'><FontAwesomeIcon icon={faMinus}></FontAwesomeIcon></button>
+                                    </>
+                            }
 
-                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div className='flex justify-center'>
+                <form className='grid grid-cols-2 w-[500px] py-20 gap-3' onSubmit={handleSubmit(onSubmit)}>
+                    <input className='bg-transparent border-b-2 border-gray-300 py-2 px-4 col-span-2' type="text" value={itemname} name="" id="" placeholder='Product Name' />
+                    <input className='bg-transparent border-b-2 border-gray-300 py-2 px-4 col-span-1' type="number" value={order} name="" id="" placeholder='Total Item' />
+                    <input className='bg-transparent border-b-2 border-gray-300 py-2 px-4 col-span-1' type="number" value={totalprice} name="" id="" placeholder='Total Price' />
+                    <input className='bg-transparent border-b-2 border-gray-300 py-2 px-4 col-span-2' type="text" value={user.email} name="" id="" placeholder='Email Address' />
+                    <input className='bg-transparent border-b-2 border-gray-300 py-2 px-4 col-span-2' type="number"  onBlur={event => setPhone(event.target.value)} name="" id="" placeholder='Phone Number' />
+                    <input className='bg-transparent border-b-2 border-gray-300 py-2 px-4 col-span-2' type="text"  onBlur={event => setAddress(event.target.value)}  name="" id="" placeholder='Address' />
                     {
                         orderBtn ?
                             <>
-                                <div className='flex items-center justify-between w-96'>
-                                    <button type='submit' onClick={handlePlaceOrder} class="p-1.5 w-full border border-t-gray-400 rounded-sm hover:bg-black hover:text-gray-300">Place Order</button>
+                                <div className='flex items-center justify-between col-span-2 -mt-3.5'>
+                                    <button type='submit' onClick={handlePlaceOrder} class="p-2.5 w-full border border-t-gray-400 rounded-sm hover:bg-black hover:text-gray-300">Place Order</button>
                                 </div>
                             </>
                             :
                             <>
-                                <div className='flex items-center justify-between w-96'>
+                                <div className='flex items-center justify-between col-span-2 -mt-3.5'>
                                     <button type='submit' disabled onClick={handlePlaceOrder} class="p-1.5 w-full border border-t-gray-400 rounded-sm">Place Order</button>
                                 </div>
                             </>
