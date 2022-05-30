@@ -45,7 +45,7 @@ const Login = () => {
         if (notRegistered) {
             createUserWithEmailAndPassword(email, password);
 
-            const url = `https://dry-journey-38445.herokuapp.com/user`;
+            const url = `http://localhost:5000/user`;
             fetch(url, {
                 method: 'POST',
                 headers: {

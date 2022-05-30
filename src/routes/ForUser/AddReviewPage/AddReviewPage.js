@@ -14,7 +14,7 @@ const AddReviewPage = () => {
 
     const onSubmit = data => {
         console.log(data);
-        const url = `https://dry-journey-38445.herokuapp.com/review`;
+        const url = `http://localhost:5000/review`;
         fetch(url, {
             method: 'POST',
             headers: {

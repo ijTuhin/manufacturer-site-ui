@@ -15,7 +15,7 @@ const PurchasePage = () => {
     const [profile, setProfile] = useState([]);
 
     useEffect(() => {
-        const url = `https://dry-journey-38445.herokuapp.com/user/${user.email}`;
+        const url = `http://localhost:5000/user/${user.email}`;
         console.log(url);
         fetch(url)
             .then(res => res.json())
@@ -26,7 +26,7 @@ const PurchasePage = () => {
     }, [])
 
     useEffect(() => {
-        const url = `https://dry-journey-38445.herokuapp.com/product/${id}`;
+        const url = `http://localhost:5000/product/${id}`;
         console.log(url);
         fetch(url)
             .then(res => res.json())
@@ -88,7 +88,7 @@ const PurchasePage = () => {
         const newAvailable = { added };
         console.log(orderData, newAvailable);
 
-        const url = `https://dry-journey-38445.herokuapp.com/order`;
+        const url = `http://localhost:5000/order`;
         fetch(url, {
             method: 'POST',
             headers: {
@@ -103,7 +103,7 @@ const PurchasePage = () => {
                 setOrderBtn(false);
             });
 
-        const url2 = `https://dry-journey-38445.herokuapp.com/product/${id}`;
+        const url2 = `http://localhost:5000/product/${id}`;
         fetch(url2, {
             method: 'PUT',
             headers: {

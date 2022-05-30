@@ -8,7 +8,7 @@ const ManageUser = () => {
     const [users, setUsers] = useState([]);
     const [reload, setReload] = useState(false);
     useEffect(() => {
-        fetch('https://dry-journey-38445.herokuapp.com/user')
+        fetch('http://localhost:5000/user')
             .then(res => res.json())
             .then(data => {
                 setUsers(data);

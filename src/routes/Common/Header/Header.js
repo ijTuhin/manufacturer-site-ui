@@ -14,7 +14,7 @@ const Header = () => {
     const [profile, setProfile] = useState([]);
 
     useEffect(() => {
-        const url = `https://dry-journey-38445.herokuapp.com/user/${user?.email}`;
+        const url = `http://localhost:5000/user/${user?.email}`;
         console.log(url);
         fetch(url)
             .then(res => res.json())

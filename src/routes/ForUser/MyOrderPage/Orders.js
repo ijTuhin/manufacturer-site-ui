@@ -17,7 +17,7 @@ const Orders = ({ allorder }) => {
     const handleConfirm = () => {
         const paid = "done";
         const updated = { itemname, order, totalprice, paid };
-        const url = `https://dry-journey-38445.herokuapp.com/order/${user.email}/${_id}`;
+        const url = `http://localhost:5000/order/${user.email}/${_id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -34,7 +34,7 @@ const Orders = ({ allorder }) => {
     };
     const handleCancel = () => {
         console.log(itemname, ' Item deleted from Cart');
-        const url = `https://dry-journey-38445.herokuapp.com/order/${user.email}/${_id}`;
+        const url = `http://localhost:5000/order/${user.email}/${_id}`;
         fetch(url, {
             method: 'DELETE'
         })
@@ -48,17 +48,17 @@ const Orders = ({ allorder }) => {
 
     return (
         <tr class="bg-white border-b transition duration-300 ease-in-out">
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-center font-medium text-gray-900">{_id}</td>
-            <td class="text-sm text-gray-900 text-center font-light px-6 py-4 whitespace-nowrap">
+            <td class="md:px-6 hidden md:block px-3 py-4 whitespace-nowrap text-sm text-center font-medium text-gray-900">{_id}</td>
+            <td class="text-sm text-gray-900 text-center font-light md:px-6 px-3 py-4 whitespace-nowrap">
                 {itemname}
             </td>
-            <td class="text-sm text-gray-900 text-center font-light px-6 py-4 whitespace-nowrap">
+            <td class="text-sm text-gray-900 text-center font-light md:px-6 px-3 py-4 whitespace-nowrap">
                 {order}
             </td>
-            <td class="text-sm text-gray-900 text-center font-light px-6 py-4 whitespace-nowrap">
+            <td class="text-sm text-gray-900 text-center font-light md:px-6 px-3 py-4 whitespace-nowrap">
                 ${totalprice}
             </td>
-            <td class="text-sm text-gray-900 text-center font-light px-6 py-4 whitespace-nowrap">
+            <td class="text-sm text-gray-900 text-center font-light md:px-6 px-3 py-4 whitespace-nowrap">
                 {
                     paid ?
                         <>
@@ -79,7 +79,7 @@ const Orders = ({ allorder }) => {
                                             </div>
                                             <div
                                                 class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-2 rounded-b-md">
-                                                <button type="button" class="px-6
+                                                <button type="button" class="md:px-6 px-3
           py-2.5
           bg-red-600
           text-white
@@ -95,7 +95,7 @@ const Orders = ({ allorder }) => {
           transition
           duration-150
           ease-in-out" data-bs-dismiss="modal">Cancel</button>
-                                                <button type='submit' onClick={handleCancel} class="px-6
+                                                <button type='submit' onClick={handleCancel} class="md:px-6 px-3
       py-2.5
       bg-blue-600
       text-white

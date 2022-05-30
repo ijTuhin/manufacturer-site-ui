@@ -11,7 +11,7 @@ const MyProfilePage = () => {
     const [profile, setProfile] = useState([]);
 
     useEffect(() => {
-        const url = `https://dry-journey-38445.herokuapp.com/user/${user.email}`;
+        const url = `http://localhost:5000/user/${user.email}`;
         console.log(url);
         fetch(url)
             .then(res => res.json())
@@ -22,7 +22,7 @@ const MyProfilePage = () => {
     }, [])
 
     const onSubmit = data => {
-        const url = `https://dry-journey-38445.herokuapp.com/user/${user.email}`;
+        const url = `http://localhost:5000/user/${user.email}`;
         fetch(url, {
             method: 'PUT',
             headers: {
