@@ -82,11 +82,12 @@ const PurchasePage = () => {
     const price = item.price;
     const useremail = user.email;
     const totalprice = price * order;
-    const orderData = {useremail, phone, address, itemname, order,  totalprice };
+    const orderData = { useremail, phone, address, itemname, order, totalprice };
     const onSubmit = data => {
         const added = (parseInt(order) - parseInt(item.available)) * (-1);
         const newAvailable = { added };
         console.log(orderData, newAvailable);
+
         const url = `https://dry-journey-38445.herokuapp.com/order`;
         fetch(url, {
             method: 'POST',
@@ -98,6 +99,8 @@ const PurchasePage = () => {
             .then(res => res.json())
             .then(result => {
                 console.log(result);
+                setOrder(0);
+                setOrderBtn(false);
             });
 
         const url2 = `https://dry-journey-38445.herokuapp.com/product/${id}`;
@@ -125,13 +128,13 @@ const PurchasePage = () => {
             <div className='p-5'>
                 {
                     user?.displayName ?
-                    <>
-                    <h2>Username: {user?.displayName}</h2>
-                    </>
-                    :
-                    <>
-                    <h2>Username: {profile?.displayName}</h2>
-                    </>
+                        <>
+                            <h2>Username: {user?.displayName}</h2>
+                        </>
+                        :
+                        <>
+                            <h2>Username: {profile?.displayName}</h2>
+                        </>
                 }
                 <h2>Email: {user?.email}</h2>
             </div>
@@ -182,13 +185,13 @@ const PurchasePage = () => {
                     <input className='bg-transparent border-b-2 border-gray-300 py-2 px-4 col-span-1' type="number" value={order} name="" id="" placeholder='Total Item' />
                     <input className='bg-transparent border-b-2 border-gray-300 py-2 px-4 col-span-1' type="number" value={totalprice} name="" id="" placeholder='Total Price' />
                     <input className='bg-transparent border-b-2 border-gray-300 py-2 px-4 col-span-2' type="text" value={user.email} name="" id="" placeholder='Email Address' />
-                    <input className='bg-transparent border-b-2 border-gray-300 py-2 px-4 col-span-2' type="number"  onBlur={event => setPhone(event.target.value)} name="" id="" placeholder='Phone Number' />
-                    <input className='bg-transparent border-b-2 border-gray-300 py-2 px-4 col-span-2' type="text"  onBlur={event => setAddress(event.target.value)}  name="" id="" placeholder='Address' />
+                    <input className='bg-transparent border-b-2 border-gray-300 py-2 px-4 col-span-2' type="number" onBlur={event => setPhone(event.target.value)} name="" id="" placeholder='Phone Number' required />
+                    <input className='bg-transparent border-b-2 border-gray-300 py-2 px-4 col-span-2' type="text" onBlur={event => setAddress(event.target.value)} name="" id="" placeholder='Address' required/>
                     {
                         orderBtn ?
                             <>
                                 <div className='flex items-center justify-between col-span-2 -mt-3.5'>
-                                    <button type='submit' onClick={handlePlaceOrder} class="p-2.5 w-full border border-t-gray-400 rounded-sm hover:bg-black hover:text-gray-300">Place Order</button>
+                                    <button type='button' onClick={handlePlaceOrder} data-bs-toggle="modal" data-bs-target="#exampleModal" class="p-2.5 w-full border border-t-gray-400 rounded-sm hover:bg-black hover:text-gray-300">Place Order</button>
                                 </div>
                             </>
                             :
@@ -198,6 +201,54 @@ const PurchasePage = () => {
                                 </div>
                             </>
                     }
+
+                    <div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+                        id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog relative w-auto pointer-events-none">
+                            <div
+                                class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
+                                <div class="modal-body relative p-4">
+                                    Confirm Purchase {itemname}?
+                                </div>
+                                <div
+                                    class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-2 rounded-b-md">
+                                    <button type="button" class="px-6
+          py-2.5
+          bg-red-600
+          text-white
+          font-medium
+          text-xs
+          leading-tight
+          uppercase
+          rounded
+          shadow-md
+          hover:bg-red-700 hover:shadow-lg
+          focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0
+          active:bg-red-800 active:shadow-lg
+          transition
+          duration-150
+          ease-in-out" data-bs-dismiss="modal">Cancel</button>
+                                    <button type='submit' onClick={handlePlaceOrder} class="px-6
+      py-2.5
+      bg-blue-600
+      text-white
+      font-medium
+      text-xs
+      leading-tight
+      uppercase
+      rounded
+      shadow-md
+      hover:bg-blue-700 hover:shadow-lg
+      focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
+      active:bg-blue-800 active:shadow-lg
+      transition
+      duration-150
+      ease-in-out
+      ml-1" data-bs-dismiss="modal">Confirm</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
