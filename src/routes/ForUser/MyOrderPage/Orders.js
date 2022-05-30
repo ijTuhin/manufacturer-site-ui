@@ -17,7 +17,7 @@ const Orders = ({ allorder }) => {
     const handleConfirm = () => {
         const paid = "done";
         const updated = { itemname, order, totalprice, paid };
-        const url = `http://localhost:5000/order/${user.email}/${_id}`;
+        const url = `https://dry-journey-38445.herokuapp.com/order/${user.email}/${_id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -34,7 +34,7 @@ const Orders = ({ allorder }) => {
     };
     const handleCancel = () => {
         console.log(itemname, ' Item deleted from Cart');
-        const url = `http://localhost:5000/order/${user.email}/${_id}`;
+        const url = `https://dry-journey-38445.herokuapp.com/order/${user.email}/${_id}`;
         fetch(url, {
             method: 'DELETE'
         })

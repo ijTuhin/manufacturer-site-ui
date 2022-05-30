@@ -13,7 +13,7 @@ const Users = ({ alluser }) => {
     const onSubmit = async () => {
         const role = "admin";
         const data = {role};
-        const url = `http://localhost:5000/user/${email}`;
+        const url = `https://dry-journey-38445.herokuapp.com/user/${email}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -30,7 +30,7 @@ const Users = ({ alluser }) => {
     };
 
     const handleDeleteUser = () => {
-        const url = `http://localhost:5000/user/${alluser.email}`;
+        const url = `https://dry-journey-38445.herokuapp.com/user/${alluser.email}`;
         console.log(displayName, ' removed from user Db', url);
         fetch(url, {
             method: 'DELETE'
