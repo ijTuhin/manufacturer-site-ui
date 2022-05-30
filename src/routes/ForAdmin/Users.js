@@ -43,16 +43,16 @@ const Users = ({ alluser }) => {
     }
     return (
         <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-center font-light text-gray-900">{_id}</td>
-            <td class="text-sm text-gray-900 text-center font-light px-6 py-4 whitespace-nowrap">
+            <td class="hidden md:block px-6 py-4 whitespace-nowrap md:text-sm text-xs text-center font-light text-gray-900">{_id}</td>
+            <td class="md:text-sm text-xs text-gray-900 md:text-center font-light pl-6 md:px-6 py-4 whitespace-nowrap">
                 {email}
             </td>
-            <td class="text-sm text-red-500 text-center px-6 py-4 whitespace-nowrap">
+            <td class="md:text-sm text-xs text-red-500 text-center px-3 md:px-6 py-4 whitespace-nowrap">
                 {role}
             </td>
-            <td class="text-sm text-gray-900 text-center font-light px-6 py-4 whitespace-nowrap">
-                <button type='submit' onClick={onSubmit} className='border bg-gray-300 hover:bg-red-500 hover:text-white rounded text-gray-800 px-4 py-2 mr-5'>Make Admin <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
-                <button type='button' data-bs-toggle="modal" data-bs-target="#exampleModal" className='border hover:bg-gray-100 bg-gray-200 rounded text-red-600 px-4 py-2'>Delete User <FontAwesomeIcon icon={faMinus}></FontAwesomeIcon></button>
+            <td class="md:text-sm text-xs text-gray-900 text-center font-light px-3 md:px-6 py-4 whitespace-nowrap">
+                <button type='submit' onClick={onSubmit} className='border bg-gray-300 hover:bg-red-500 hover:text-white rounded text-gray-800 md:px-4 px-2 py-2 md:mr-5 mr-2'>Make Admin <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
+                <button type='button' data-bs-toggle="modal" data-bs-target="#exampleModal" className='border hover:bg-gray-100 bg-gray-200 rounded text-red-600 md:px-4 px-2 py-2'>Delete User <FontAwesomeIcon className='hidden md:inline' icon={faMinus}></FontAwesomeIcon></button>
                 <ToastContainer />
 
 
