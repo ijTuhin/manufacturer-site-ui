@@ -32,7 +32,7 @@ const Header = () => {
     return (
         <div className='sticky z-50 top-0'>
 
-            <div className='shadow-lg navbar navbar-expand-lg navbar-light md:block hidden'>
+            <div className='navbar navbar-expand-lg navbar-light md:block hidden'>
                 <div className='bg-white flex items-center justify-between px-8 py-4'>
                     <img src={logo} className="w-56 pr-8" alt="" />
                     <div className='flex'>

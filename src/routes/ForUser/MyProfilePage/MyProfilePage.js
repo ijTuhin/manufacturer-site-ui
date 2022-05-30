@@ -38,7 +38,7 @@ const MyProfilePage = () => {
     };
 
     return (
-        <div className='h-full py-10 px-32 bg-white'>
+        <div className='h-full py-10 px-10 md:px-32 bg-white'>
             <h2 className='text-2xl font-serif text-gray-600 font-bold'>Profile Information</h2>
             <div className='w-full border-t-[1px] border-black'></div>
             <div className='mb-10'>
@@ -62,7 +62,7 @@ const MyProfilePage = () => {
             <h2 className='text-2xl font-serif text-gray-600 font-bold'>Update Profile</h2>
             <div className='w-full border-t-[1px] border-black'></div>
             <form onSubmit={handleSubmit(onSubmit)} className=" bg-white/75 p-6">
-                <div className='grid grid-cols-2 gap-10'>
+                <div className='grid md:grid-cols-2 grid-cols-1 gap-10'>
                     <div>
                         <h2 className='text-xl font-serif text-gray-500 font-semibold mb-1'>Personal</h2>
                         <div className='grid grid-cols-2 gap-x-2'>
@@ -159,9 +159,9 @@ const MyProfilePage = () => {
         focus:text-gray-700" placeholder="LinkedIn Profile" {...register("linkedin")} />
 
                         </div>
-                        <div className='flex items-center my-2'>
+                        <div className='flex md:flex-row flex-col md:items-center my-2'>
                             <h2 className='mr-3 -mt-[1px]'>You are a student or job-holder? </h2>
-                            <Radio className='mr-2.5' variant='thick' name="pizza" value="job-holder" {...register("status")} {...radio}>
+                            <Radio className='mr-2.5 mb-1.5' variant='thick' name="pizza" value="job-holder" {...register("status")} {...radio}>
                                 Job-holder
                             </Radio>
                             <Radio className='mr-2.5' variant='thick' name="pizza" value="student" {...register("status")} {...radio}>
